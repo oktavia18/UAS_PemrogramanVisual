@@ -14,42 +14,94 @@
 **Laundry Cuci Kilat** adalah aplikasi berbasis web yang dibuat untuk memenuhi **Ujian Akhir Semester (UAS) mata kuliah Pemrograman Visual**.  
 Aplikasi ini menampilkan sistem informasi layanan laundry dengan struktur web yang rapi dan mudah dikembangkan.
 
-# Panduan Instalasi & Konfigurasi Aplikasi  
-## Laundry Cuci Kilat  
-**Berbasis IIS, MongoDB, dan SQL Server**
+## 🎯 Tujuan dan Manfaat Sistem
+
+### Tujuan
+- Mengembangkan sistem informasi laundry berbasis web
+- Menerapkan konsep pemrograman visual dalam aplikasi website
+- Mengelola proses bisnis laundry secara terintegrasi
+- Menyediakan sistem yang terstruktur dan mudah dikembangkan
+
+### Manfaat
+- Mempermudah pengelolaan data layanan dan pesanan laundry
+- Meningkatkan efisiensi dan akurasi pencatatan
+- Memudahkan pemantauan status pesanan
+- Mendukung pelayanan laundry yang lebih profesional
 
 ---
 
-## 📌 Deskripsi
-Dokumen ini menjelaskan langkah-langkah **instalasi, konfigurasi, dan menjalankan aplikasi Laundry Cuci Kilat** pada lingkungan **Windows Server / Windows Desktop** menggunakan **IIS (Internet Information Services)**, **Microsoft SQL Server**, dan **MongoDB**.
+## 🛠️ Teknologi yang Digunakan
 
-Panduan ini ditujukan untuk kebutuhan:
-- Deployment aplikasi
-- Pengujian lokal
-- Dokumentasi UAS Pemrograman Visual
+### Frontend
+- **HTML5** – Struktur halaman website  
+- **CSS3** – Desain dan tampilan antarmuka  
+- **JavaScript** – Interaksi dan fungsi dinamis  
+- **Bootstrap** – Framework CSS untuk tampilan responsif  
+
+### Backend
+- **PHP** – Bahasa pemrograman server-side  
+- **Model-View-Controller (MVC)** – Arsitektur pemisahan logika, tampilan, dan data  
+
+### Database
+- **MySQL** – Sistem manajemen basis data untuk menyimpan data pengguna, layanan, pesanan, transaksi, dan laporan  
+
+### Keamanan & Pendukung
+- **Session Management** – Pengelolaan sesi login pengguna  
+- **Password Encryption** – Keamanan data akun pengguna  
+- **PDF Generator** – Pembuatan struk transaksi dan laporan  
+- **Role-Based Access Control (RBAC)** – Pembagian hak akses pengguna  
+
+### Version Control
+- **Git & GitHub** – Pengelolaan source code dan dokumentasi project  
 
 ---
 
-## 🧰 Prasyarat Sistem
-Pastikan environment sudah memiliki komponen berikut:
+## ✨ Fitur Utama Sistem
 
-- **Windows OS**
-- **IIS (Internet Information Services)**
-- **.NET Runtime / .NET Hosting Bundle** (sesuai versi aplikasi)
-- **Microsoft SQL Server**
-- **SQL Server Management Studio (SSMS)**
-- **MongoDB**
-- **Git** (opsional, untuk clone repository)
+- Sistem Login dan Autentikasi Pengguna
+- Role-Based Access Control (Admin & Karyawan)
+- Manajemen Layanan Laundry
+- Pemesanan Laundry Online
+- Manajemen dan Proses Pesanan
+- Dashboard Operasional
+- Manajemen Data Pelanggan
+- Manajemen Data Karyawan
+- Laporan Transaksi dan Pendapatan (PDF)
+- Fitur Logout Aman
 
 ---
 
-## 1️⃣ Instalasi IIS (Internet Information Services)
+## 🔐 Arsitektur Otentikasi
 
-1. Buka **Control Panel**
-2. Pilih **Programs → Turn Windows features on or off**
-3. Centang:
-   - Internet Information Services
-   - Web Management Tools
-   - World Wide Web Services
-4. Klik **OK** dan tunggu hingga selesai
-5. Verifikasi IIS dengan membuka browser:
+Sistem Laundry Cuci Kilat menerapkan **arsitektur otentikasi berbasis role management**. Setiap pengguna diwajibkan melakukan login untuk mengakses sistem, dan hak akses ditentukan berdasarkan peran pengguna. Menu dan fitur yang tersedia akan disesuaikan dengan role masing-masing pengguna sehingga keamanan dan keteraturan sistem dapat terjaga.
+
+---
+
+## 🎨 Tampilan / User Interface
+
+Website dirancang dengan tampilan yang sederhana, modern, dan user-friendly, meliputi:
+- Halaman Login
+- Halaman Beranda
+- Halaman Layanan
+- Dashboard Admin
+- Dashboard Karyawan
+- Halaman Kelola Data
+- Struk Transaksi Laundry
+- Laporan Transaksi dalam format PDF
+
+Tampilan dibuat responsif untuk mendukung penggunaan pada berbagai perangkat.
+
+---
+
+## 📂 Struktur Folder Utama
+
+UAS_PemrogramanVisual/
+├── assets/
+├── templates/
+├── Views/
+├── laundrycucikilat/
+├── home/
+├── Email/
+├── aspnet_client/
+├── favicon.ico
+└── connections.config
