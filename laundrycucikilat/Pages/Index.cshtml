@@ -1,0 +1,613 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Beranda - Laundry Cuci Kilat";
+}
+
+<!-- Static Hero Banner Section -->
+<section class="static-hero-banner" style="position: relative; height: 80vh; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+    <!-- Single Static Background Image -->
+    <div class="hero-background" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
+        <img src="~/images/washing-machines.jpg" 
+             alt="Modern Washing Machines in Professional Laundromat" 
+             style="width: 100%; height: 100%; object-fit: cover; object-position: center; filter: brightness(0.4) contrast(1.2);">
+        <!-- Soft Blue Overlay for Better Text Contrast -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(25, 55, 109, 0.9) 0%, rgba(52, 84, 141, 0.8) 50%, rgba(74, 144, 226, 0.7) 100%); z-index: 2;"></div>
+    </div>
+    
+    <!-- Hero Content - Perfectly Centered -->
+    <div class="hero-content" style="position: relative; z-index: 3; text-align: center; color: white; max-width: 900px; padding: 0 2rem;">
+        <!-- Business Badge -->
+        <div class="business-badge" style="display: inline-block; background: rgba(255, 255, 255, 0.2); padding: 0.75rem 2rem; border-radius: 50px; font-size: 1rem; font-weight: 600; margin-bottom: 2rem; backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.3);">
+            <i class="fas fa-award me-2"></i>Laundry Terpercaya #1 di Jakarta
+        </div>
+        
+        <!-- Main Title -->
+        <h1 style="font-family: 'Poppins', sans-serif; font-size: 4.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5); letter-spacing: -2px;">
+            Laundry Cuci Kilat
+        </h1>
+        
+        <!-- Subtitle -->
+        <p style="font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 3rem; opacity: 0.95; text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4); max-width: 700px; margin-left: auto; margin-right: auto;">
+            Layanan Laundry Cepat, Bersih, dan Terpercaya<br>
+            <span style="font-size: 1.2rem; font-weight: 300; opacity: 0.9;">Solusi lengkap untuk kebutuhan laundry Anda dengan teknologi modern</span>
+        </p>
+        
+        <!-- Call to Action Buttons -->
+        <div class="hero-buttons" style="margin-bottom: 4rem;">
+            <a asp-page="/Pemesanan" class="btn btn-warning btn-lg me-3" style="padding: 1.3rem 3rem; font-size: 1.2rem; font-weight: 700; border-radius: 50px; background: linear-gradient(135deg, #FFD700, #FFA500); border: none; color: #333; box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5); text-decoration: none; display: inline-block;">
+                <i class="fas fa-rocket me-2"></i>Pesan Sekarang
+            </a>
+            <a asp-page="/Layanan" class="btn btn-outline-light btn-lg" style="padding: 1.3rem 3rem; font-size: 1.2rem; font-weight: 600; border-radius: 50px; border: 3px solid rgba(255, 255, 255, 0.9); color: white; backdrop-filter: blur(15px); text-decoration: none; display: inline-block;">
+                <i class="fas fa-list me-2"></i>Lihat Layanan
+            </a>
+        </div>
+        
+        <!-- Business Statistics -->
+        <div class="business-stats" style="background: rgba(255, 255, 255, 0.2); border-radius: 25px; padding: 2.5rem; backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.3); max-width: 700px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);">
+            <div class="row text-center">
+                <div class="col-3">
+                    <div style="font-size: 2.5rem; font-weight: 900; line-height: 1; margin-bottom: 0.5rem; color: #FFD700; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">5000+</div>
+                    <div style="font-size: 1rem; opacity: 0.95; font-weight: 600;">Pelanggan<br>Puas</div>
+                </div>
+                <div class="col-3">
+                    <div style="font-size: 2.5rem; font-weight: 900; line-height: 1; margin-bottom: 0.5rem; color: #FFD700; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">24</div>
+                    <div style="font-size: 1rem; opacity: 0.95; font-weight: 600;">Jam<br>Layanan</div>
+                </div>
+                <div class="col-3">
+                    <div style="font-size: 2.5rem; font-weight: 900; line-height: 1; margin-bottom: 0.5rem; color: #FFD700; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">99%</div>
+                    <div style="font-size: 1rem; opacity: 0.95; font-weight: 600;">Tingkat<br>Kepuasan</div>
+                </div>
+                <div class="col-3">
+                    <div style="font-size: 2.5rem; font-weight: 900; line-height: 1; margin-bottom: 0.5rem; color: #FFD700; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">6</div>
+                    <div style="font-size: 1rem; opacity: 0.95; font-weight: 600;">Jam<br>Express</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Professional Services Section -->
+<section class="services-section" style="padding: 6rem 0; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 style="font-family: 'Poppins', sans-serif; font-size: 2.8rem; font-weight: 700; color: #2C3E50; margin-bottom: 1.5rem;">Layanan Unggulan Kami</h2>
+                <p style="font-size: 1.2rem; color: #6C757D; max-width: 700px; margin: 0 auto; line-height: 1.6;">Pilihan layanan terbaik dengan teknologi modern, kualitas terjamin, dan hasil yang memuaskan untuk semua kebutuhan laundry Anda</p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card" style="background: white; border-radius: 25px; padding: 3rem 2.5rem; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #E6F3FF; height: 100%; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(135deg, #87CEEB, #4A90E2);"></div>
+                    <div style="width: 90px; height: 90px; border-radius: 50%; background: linear-gradient(135deg, #87CEEB, #4A90E2); display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-size: 2.2rem; color: white; box-shadow: 0 10px 25px rgba(74, 144, 226, 0.3);">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h4 style="color: #2C3E50; margin-bottom: 1.5rem; font-weight: 700; font-size: 1.4rem;">Express 6 Jam</h4>
+                    <p style="color: #6C757D; margin-bottom: 2rem; line-height: 1.7; font-size: 1rem;">Layanan super cepat untuk kebutuhan mendesak dengan kualitas terjamin dan hasil sempurna</p>
+                    <div style="color: #28a745; font-weight: 800; font-size: 1.4rem; margin-bottom: 1rem;">Mulai Rp 8.000/kg</div>
+                    <div style="background: linear-gradient(135deg, #28a745, #20c997); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600; display: inline-block;">
+                        <i class="fas fa-check-circle me-1"></i>Tersedia Hari Ini
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card" style="background: white; border-radius: 25px; padding: 3rem 2.5rem; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #E6F3FF; height: 100%; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(135deg, #87CEEB, #4A90E2);"></div>
+                    <div style="width: 90px; height: 90px; border-radius: 50%; background: linear-gradient(135deg, #87CEEB, #4A90E2); display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-size: 2.2rem; color: white; box-shadow: 0 10px 25px rgba(74, 144, 226, 0.3);">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h4 style="color: #2C3E50; margin-bottom: 1.5rem; font-weight: 700; font-size: 1.4rem;">Antar Jemput</h4>
+                    <p style="color: #6C757D; margin-bottom: 2rem; line-height: 1.7; font-size: 1rem;">Gratis antar jemput di seluruh Jakarta dengan jadwal yang fleksibel sesuai kebutuhan Anda</p>
+                    <div style="color: #28a745; font-weight: 800; font-size: 1.4rem; margin-bottom: 1rem;">Gratis Ongkir</div>
+                    <div style="background: linear-gradient(135deg, #17a2b8, #20c997); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600; display: inline-block;">
+                        <i class="fas fa-map-marker-alt me-1"></i>Area Jakarta
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card" style="background: white; border-radius: 25px; padding: 3rem 2.5rem; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #E6F3FF; height: 100%; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(135deg, #87CEEB, #4A90E2);"></div>
+                    <div style="width: 90px; height: 90px; border-radius: 50%; background: linear-gradient(135deg, #87CEEB, #4A90E2); display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-size: 2.2rem; color: white; box-shadow: 0 10px 25px rgba(74, 144, 226, 0.3);">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 style="color: #2C3E50; margin-bottom: 1.5rem; font-weight: 700; font-size: 1.4rem;">Kualitas Premium</h4>
+                    <p style="color: #6C757D; margin-bottom: 2rem; line-height: 1.7; font-size: 1rem;">Deterjen berkualitas tinggi dan mesin modern untuk hasil sempurna yang tahan lama</p>
+                    <div style="color: #28a745; font-weight: 800; font-size: 1.4rem; margin-bottom: 1rem;">Garansi 100%</div>
+                    <div style="background: linear-gradient(135deg, #ffc107, #fd7e14); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600; display: inline-block;">
+                        <i class="fas fa-star me-1"></i>Premium Quality
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-5">
+            <a asp-page="/Pemesanan" class="btn btn-primary btn-lg" style="padding: 1.3rem 3.5rem; font-size: 1.2rem; border-radius: 50px; background: linear-gradient(135deg, #4A90E2, #87CEEB); border: none; font-weight: 700; box-shadow: 0 8px 25px rgba(74, 144, 226, 0.4);">
+                <i class="fas fa-rocket me-2"></i>Mulai Pesan Sekarang
+            </a>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts {
+    <style>
+        /* FORCE ENABLE ALL ANIMATIONS WITH !important */
+        * {
+            animation-play-state: running !important;
+            animation-fill-mode: both !important;
+        }
+        
+        /* Hero Banner with FORCED Hover Animations */
+        .static-hero-banner {
+            position: relative;
+            height: 80vh;
+            min-height: 600px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Background Image - Static but with FORCED hover effect */
+        .hero-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            filter: brightness(0.4) contrast(1.2);
+            /* REMOVED: transition and hover effects */
+        }
+        
+        /* REMOVED: Background hover animation */
+        
+        /* Business Badge FORCED Hover Animation */
+        .business-badge {
+            transition: all 0.3s ease !important;
+            cursor: pointer !important;
+            transform: translateY(0px) scale(1) !important;
+        }
+        
+        .business-badge:hover {
+            transform: translateY(-3px) scale(1.05) !important;
+            background: rgba(255, 255, 255, 0.3) !important;
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2) !important;
+            animation: glow 2s ease-in-out infinite !important;
+        }
+        
+        /* Main Title FORCED Hover Animation */
+        .static-hero-banner h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            letter-spacing: -2px;
+            transition: all 0.3s ease !important;
+            cursor: default;
+            transform: scale(1) !important;
+        }
+        
+        .static-hero-banner h1:hover {
+            transform: scale(1.02) !important;
+            text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.7) !important;
+            color: #FFD700 !important;
+        }
+        
+        /* Subtitle FORCED Hover Animation */
+        .static-hero-banner p {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            transition: all 0.3s ease !important;
+            cursor: default;
+            transform: translateY(0px) !important;
+        }
+        
+        .static-hero-banner p:hover {
+            transform: translateY(-2px) !important;
+            opacity: 1 !important;
+        }
+        
+        /* Button FORCED Hover Animations */
+        .hero-buttons .btn {
+            transition: all 0.3s ease !important;
+            position: relative !important;
+            overflow: hidden !important;
+            transform: translateY(0px) scale(1) !important;
+        }
+        
+        .hero-buttons .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease !important;
+        }
+        
+        .hero-buttons .btn:hover::before {
+            left: 100% !important;
+        }
+        
+        .hero-buttons .btn:hover {
+            transform: translateY(-5px) scale(1.05) !important;
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.6) !important;
+        }
+        
+        .btn-warning:hover {
+            background: linear-gradient(135deg, #FFE55C, #FF8C00) !important;
+        }
+        
+        .btn-outline-light:hover {
+            background: rgba(255, 255, 255, 0.25) !important;
+            border-color: rgba(255, 255, 255, 1) !important;
+            transform: translateY(-5px) scale(1.05) !important;
+            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.3) !important;
+        }
+        
+        /* Business Statistics FORCED Hover Animation */
+        .business-stats {
+            transition: all 0.3s ease !important;
+            cursor: pointer !important;
+            transform: translateY(0px) scale(1) !important;
+        }
+        
+        .business-stats:hover {
+            transform: translateY(-8px) scale(1.02) !important;
+            background: rgba(255, 255, 255, 0.25) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+        }
+        
+        /* Individual Stat FORCED Hover */
+        .business-stats .col-3 {
+            transition: all 0.3s ease !important;
+            border-radius: 15px !important;
+            padding: 1rem !important;
+            cursor: pointer !important;
+            transform: translateY(0px) scale(1) !important;
+        }
+        
+        .business-stats .col-3:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            transform: translateY(-5px) scale(1.1) !important;
+        }
+        
+        .business-stats .col-3:hover div:first-child {
+            color: #FFF !important;
+            text-shadow: 3px 3px 8px rgba(255, 215, 0, 0.8) !important;
+            transform: scale(1.2) !important;
+        }
+        
+        /* Service Cards FORCED Hover Animations */
+        .service-card {
+            transition: all 0.4s ease !important;
+            cursor: pointer !important;
+            position: relative !important;
+            overflow: hidden !important;
+            transform: translateY(0px) scale(1) !important;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(74, 144, 226, 0.1), transparent);
+            transition: transform 0.6s ease !important;
+            transform: rotate(45deg) translate(-100%, -100%) !important;
+        }
+        
+        .service-card:hover::before {
+            transform: rotate(45deg) translate(0%, 0%) !important;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.03) !important;
+            box-shadow: 0 25px 50px rgba(74, 144, 226, 0.3) !important;
+            border-color: #4A90E2 !important;
+        }
+        
+        /* Service Card Icon FORCED Hover */
+        .service-card div[style*="border-radius: 50%"] {
+            transition: all 0.3s ease !important;
+            transform: rotate(0deg) scale(1) !important;
+        }
+        
+        .service-card:hover div[style*="border-radius: 50%"] {
+            transform: rotate(360deg) scale(1.1) !important;
+            box-shadow: 0 15px 35px rgba(74, 144, 226, 0.5) !important;
+        }
+        
+        /* Service Card Title FORCED Hover */
+        .service-card h4 {
+            transition: all 0.3s ease !important;
+            transform: scale(1) !important;
+        }
+        
+        .service-card:hover h4 {
+            color: #4A90E2 !important;
+            transform: scale(1.05) !important;
+        }
+        
+        /* Service Card Price FORCED Hover */
+        .service-card div[style*="color: #28a745"] {
+            transition: all 0.3s ease !important;
+            transform: scale(1) !important;
+        }
+        
+        .service-card:hover div[style*="color: #28a745"] {
+            transform: scale(1.1) !important;
+            color: #20c997 !important;
+        }
+        
+        /* Service Card Badge FORCED Hover */
+        .service-card div[style*="background: linear-gradient"] {
+            transition: all 0.3s ease !important;
+            transform: scale(1) !important;
+        }
+        
+        .service-card:hover div[style*="background: linear-gradient"] {
+            transform: scale(1.05) !important;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        /* Main CTA Button FORCED Hover */
+        .btn-primary.btn-lg {
+            transition: all 0.4s ease !important;
+            position: relative !important;
+            overflow: hidden !important;
+            transform: translateY(0px) scale(1) !important;
+        }
+        
+        .btn-primary.btn-lg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease !important;
+        }
+        
+        .btn-primary.btn-lg:hover::before {
+            left: 100% !important;
+        }
+        
+        .btn-primary.btn-lg:hover {
+            transform: translateY(-8px) scale(1.08) !important;
+            box-shadow: 0 20px 40px rgba(74, 144, 226, 0.6) !important;
+            background: linear-gradient(135deg, #5BA0F2, #97DEFF) !important;
+        }
+        
+        /* Section Title FORCED Hover */
+        .services-section h2 {
+            transition: all 0.3s ease !important;
+            cursor: default !important;
+            transform: scale(1) !important;
+        }
+        
+        .services-section h2:hover {
+            transform: scale(1.02) !important;
+            color: #4A90E2 !important;
+        }
+        
+        /* FORCED Keyframe Animations */
+        @@keyframes glow {
+            0% { box-shadow: 0 0 5px rgba(74, 144, 226, 0.5) !important; }
+            50% { box-shadow: 0 0 20px rgba(74, 144, 226, 0.8) !important; }
+            100% { box-shadow: 0 0 5px rgba(74, 144, 226, 0.5) !important; }
+        }
+        
+        @@keyframes iconPulse {
+            0% { transform: scale(1) !important; }
+            50% { transform: scale(1.1) !important; }
+            100% { transform: scale(1) !important; }
+        }
+        
+        .service-card:hover .fas {
+            animation: iconPulse 1s ease-in-out infinite !important;
+        }
+        
+        /* Responsive Design */
+        @@media (max-width: 768px) {
+            .static-hero-banner {
+                height: 90vh;
+                min-height: 500px;
+            }
+            
+            .static-hero-banner h1 {
+                font-size: 2.8rem !important;
+            }
+            
+            .static-hero-banner p {
+                font-size: 1.2rem !important;
+            }
+            
+            .hero-buttons .btn {
+                display: block !important;
+                width: 100% !important;
+                margin-bottom: 1rem !important;
+                margin-right: 0 !important;
+            }
+            
+            .business-stats .col-3 {
+                margin-bottom: 1.5rem;
+            }
+            
+            .business-stats div[style*="font-size: 2.5rem"] {
+                font-size: 2rem !important;
+            }
+            
+            /* Reduce hover effects on mobile */
+            .service-card:hover {
+                transform: translateY(-8px) scale(1.02);
+            }
+            
+            .hero-buttons .btn:hover {
+                transform: translateY(-3px) scale(1.02);
+            }
+        }
+        
+        @@media (max-width: 576px) {
+            .static-hero-banner {
+                height: 100vh;
+                padding: 0 1rem;
+            }
+            
+            .static-hero-banner h1 {
+                font-size: 2.2rem !important;
+                margin-bottom: 1rem !important;
+            }
+            
+            .static-hero-banner p {
+                font-size: 1rem !important;
+                margin-bottom: 2rem !important;
+            }
+            
+            .hero-buttons .btn {
+                padding: 1rem 2rem !important;
+                font-size: 1rem !important;
+            }
+            
+            .business-stats {
+                padding: 2rem 1.5rem !important;
+            }
+            
+            .business-badge {
+                font-size: 0.9rem !important;
+                padding: 0.5rem 1.5rem !important;
+            }
+        }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Icon Animations */
+        .fas, .far, .fab, .fal {
+            transition: all 0.3s ease;
+        }
+        
+        /* Pulse Animation for Icons */
+        @@keyframes iconPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .service-card:hover .fas {
+            animation: iconPulse 1s ease-in-out infinite;
+        }
+        
+        /* Glow Effect */
+        @@keyframes glow {
+            0% { box-shadow: 0 0 5px rgba(74, 144, 226, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(74, 144, 226, 0.8); }
+            100% { box-shadow: 0 0 5px rgba(74, 144, 226, 0.5); }
+        }
+        
+        .business-badge:hover {
+            animation: glow 2s ease-in-out infinite;
+        }
+    </style>
+    
+    <script>
+        // Enhanced Interactive Homepage with Hover Animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize hero content
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent) {
+                heroContent.style.opacity = '1';
+            }
+            
+            // Add interactive cursor effects
+            const interactiveElements = document.querySelectorAll('.business-badge, .service-card, .btn, .business-stats .col-3');
+            
+            interactiveElements.forEach(element => {
+                element.addEventListener('mouseenter', function() {
+                    this.style.cursor = 'pointer';
+                });
+            });
+            
+            // Add click ripple effect to buttons
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.classList.add('ripple');
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+            
+            // Add floating animation to business stats
+            const stats = document.querySelectorAll('.business-stats .col-3');
+            stats.forEach((stat, index) => {
+                stat.style.animationDelay = `${index * 0.1}s`;
+            });
+            
+            // Force image reload to bypass cache with NEW washing machine image
+            const heroImage = document.querySelector('.hero-background img');
+            if (heroImage) {
+                // Use local washing machine image with strong cache busting
+                const timestamp = new Date().getTime();
+                const randomId = Math.random().toString(36).substring(7);
+                
+                // Force complete reload with cache busting parameters for NEW local image
+                heroImage.src = '/images/washing-machines.jpg?v=new&cb=' + timestamp + '&rid=' + randomId + '&washing=machine';
+                
+                // Also update alt text to reflect NEW washing machine
+                heroImage.alt = 'Professional Washing Machines - Modern Laundromat Interior';
+                
+                // Force browser to reload the NEW image
+                heroImage.onload = function() {
+                    console.log('NEW washing machine image loaded successfully with hover animations - 320KB');
+                };
+                
+                heroImage.onerror = function() {
+                    console.log('Error loading NEW washing machine image');
+                };
+            }
+        });
+        
+        // Add CSS for ripple effect
+        const rippleStyle = document.createElement('style');
+        rippleStyle.textContent = `
+            .btn {
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .ripple {
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.6);
+                transform: scale(0);
+                animation: rippleEffect 0.6s linear;
+                pointer-events: none;
+            }
+            
+            @@keyframes rippleEffect {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(rippleStyle);
+    </script>
+}

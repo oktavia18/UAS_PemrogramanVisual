@@ -1,0 +1,539 @@
+@page
+@model LoginModel
+@{
+    ViewData["Title"] = "Login - Laundry Cuci Kilat";
+    Layout = null; // Use custom layout for login page
+}
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            max-width: 900px;
+            width: 100%;
+            min-height: 600px;
+            display: flex;
+        }
+
+        .login-left {
+            flex: 1;
+            background: linear-gradient(135deg, #4A90E2 0%, #87CEEB 100%);
+            color: white;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-left::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.08)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.06)"/></svg>') repeat;
+            background-size: 100px 100px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .login-right {
+            flex: 1;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .brand-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .login-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #2C3E50;
+        }
+
+        .login-subtitle {
+            color: #6C757D;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #2C3E50;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .form-control {
+            border: 2px solid #E6F3FF;
+            border-radius: 12px;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #F8FBFF;
+        }
+
+        .form-control:focus {
+            border-color: #4A90E2;
+            box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
+            background: white;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .input-group-text {
+            background: #F8FBFF;
+            border: 2px solid #E6F3FF;
+            border-right: none;
+            border-radius: 12px 0 0 12px;
+            color: #4A90E2;
+        }
+
+        .input-group .form-control {
+            border-left: none;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .btn-login {
+            background: linear-gradient(135deg, #4A90E2 0%, #87CEEB 100%);
+            border: none;
+            border-radius: 12px;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: white;
+            width: 100%;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-login::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn-login:hover::before {
+            left: 100%;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.4);
+        }
+
+        .btn-login:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-check {
+            margin: 1.5rem 0;
+        }
+
+        .form-check-input:checked {
+            background-color: #4A90E2;
+            border-color: #4A90E2;
+        }
+
+        .alert {
+            border-radius: 12px;
+            border: none;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .alert-danger {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            color: white;
+        }
+
+        .alert-success {
+            background: linear-gradient(135deg, #51cf66 0%, #40c057 100%);
+            color: white;
+        }
+
+        .back-to-home {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-to-home:hover {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .loading-spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 0.5rem;
+        }
+
+        @@keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @@keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #6C757D;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .password-toggle:hover {
+            color: #4A90E2;
+        }
+
+        @@media (max-width: 768px) {
+            .login-container {
+                flex-direction: column;
+                margin: 10px;
+                min-height: auto;
+            }
+
+            .login-left {
+                padding: 2rem;
+                min-height: 200px;
+            }
+
+            .login-right {
+                padding: 2rem;
+            }
+
+            .login-title {
+                font-size: 2rem;
+            }
+
+            .brand-logo {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+        }
+
+        /* Demo credentials info */
+        .demo-info {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border-left: 4px solid #4A90E2;
+        }
+
+        .demo-info h6 {
+            color: #4A90E2;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .demo-info small {
+            color: #6C757D;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <!-- Left Side - Branding -->
+        <div class="login-left">
+            <div class="brand-logo">
+                <i class="fas fa-tshirt"></i>
+            </div>
+            <h2 style="font-weight: 700; margin-bottom: 1rem;">Laundry Cuci Kilat</h2>
+            <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem;">
+                Sistem Manajemen Laundry Terpercaya
+            </p>
+            <div style="background: rgba(255, 255, 255, 0.2); padding: 1.5rem; border-radius: 15px; backdrop-filter: blur(10px);">
+                <h5 style="margin-bottom: 1rem;">Fitur Unggulan</h5>
+                <div style="text-align: left;">
+                    <div style="margin-bottom: 0.5rem;">
+                        <i class="fas fa-check-circle me-2"></i>Manajemen Pesanan Real-time
+                    </div>
+                    <div style="margin-bottom: 0.5rem;">
+                        <i class="fas fa-check-circle me-2"></i>Laporan Keuangan Lengkap
+                    </div>
+                    <div style="margin-bottom: 0.5rem;">
+                        <i class="fas fa-check-circle me-2"></i>Sistem Keamanan Terjamin
+                    </div>
+                    <div>
+                        <i class="fas fa-check-circle me-2"></i>Interface User-Friendly
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Login Form -->
+        <div class="login-right">
+            <h1 class="login-title">Selamat Datang</h1>
+            <p class="login-subtitle">Silakan masuk ke akun Anda untuk mengakses sistem</p>
+
+            <!-- Alert Messages -->
+            <div id="alertContainer"></div>
+
+            <!-- Login Form -->
+            <form id="loginForm">
+                <div class="form-group">
+                    <label class="form-label" for="emailOrUsername">
+                        <i class="fas fa-user me-2"></i>Email atau Username
+                    </label>
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                        <input type="text" class="form-control" id="emailOrUsername" name="emailOrUsername" 
+                               placeholder="Masukkan email atau username" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="password">
+                        <i class="fas fa-lock me-2"></i>Password
+                    </label>
+                    <div class="input-group position-relative">
+                        <span class="input-group-text">
+                            <i class="fas fa-key"></i>
+                        </span>
+                        <input type="password" class="form-control" id="password" name="password" 
+                               placeholder="Masukkan password" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword()">
+                            <i class="fas fa-eye" id="passwordToggleIcon"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="rememberMe" name="rememberMe">
+                    <label class="form-check-label" for="rememberMe">
+                        Ingat saya selama 30 hari
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-login" id="loginBtn">
+                    <span class="loading-spinner" id="loadingSpinner"></span>
+                    <span id="loginBtnText">
+                        <i class="fas fa-sign-in-alt me-2"></i>Masuk
+                    </span>
+                </button>
+            </form>
+
+            <!-- Demo Credentials -->
+            <div class="demo-info">
+                <h6><i class="fas fa-info-circle me-2"></i>Akun Demo</h6>
+                <small>
+                    <strong>Admin:</strong> admin@laundrycucikilat.com / admin123<br>
+                    <strong>Karyawan:</strong> karyawan@laundrycucikilat.com / karyawan123
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Check if user is already logged in
+            checkExistingSession();
+
+            // Handle form submission
+            $('#loginForm').on('submit', function(e) {
+                e.preventDefault();
+                handleLogin();
+            });
+
+            // Enter key support
+            $('#emailOrUsername, #password').on('keypress', function(e) {
+                if (e.which === 13) {
+                    handleLogin();
+                }
+            });
+        });
+
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.getElementById('passwordToggleIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.className = 'fas fa-eye-slash';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.className = 'fas fa-eye';
+            }
+        }
+
+        function showAlert(message, type = 'danger') {
+            const alertHtml = `
+                <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-triangle'} me-2"></i>
+                    ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            `;
+            $('#alertContainer').html(alertHtml);
+        }
+
+        function setLoading(isLoading) {
+            const loginBtn = $('#loginBtn');
+            const loadingSpinner = $('#loadingSpinner');
+            const loginBtnText = $('#loginBtnText');
+
+            if (isLoading) {
+                loginBtn.prop('disabled', true);
+                loadingSpinner.show();
+                loginBtnText.html('<i class="fas fa-spinner fa-spin me-2"></i>Memproses...');
+            } else {
+                loginBtn.prop('disabled', false);
+                loadingSpinner.hide();
+                loginBtnText.html('<i class="fas fa-sign-in-alt me-2"></i>Masuk');
+            }
+        }
+
+        async function handleLogin() {
+            const emailOrUsername = $('#emailOrUsername').val().trim();
+            const password = $('#password').val();
+            const rememberMe = $('#rememberMe').is(':checked');
+
+            // Validation
+            if (!emailOrUsername || !password) {
+                showAlert('Semua field wajib diisi');
+                return;
+            }
+
+            setLoading(true);
+
+            try {
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        emailOrUsername: emailOrUsername,
+                        password: password,
+                        rememberMe: rememberMe
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    showAlert('Login berhasil! Mengalihkan...', 'success');
+                    
+                    // Redirect after short delay
+                    setTimeout(() => {
+                        window.location.href = result.redirectUrl || '/';
+                    }, 1500);
+                } else {
+                    showAlert(result.message || 'Login gagal');
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                showAlert('Terjadi kesalahan koneksi. Silakan coba lagi.');
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        async function checkExistingSession() {
+            try {
+                const response = await fetch('/api/auth/check-session');
+                const result = await response.json();
+
+                if (result.isAuthenticated) {
+                    // User is already logged in, redirect based on role
+                    const redirectUrl = result.user.role === 'Admin' ? '/Admin' : 
+                                       result.user.role === 'Employee' ? '/Karyawan' : '/';
+                    window.location.href = redirectUrl;
+                }
+            } catch (error) {
+                console.error('Session check error:', error);
+            }
+        }
+    </script>
+</body>
+</html>

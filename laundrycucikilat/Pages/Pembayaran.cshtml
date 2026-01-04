@@ -1,0 +1,367 @@
+@page
+@model PembayaranModel
+@{
+    ViewData["Title"] = "Pembayaran";
+}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12 text-center mb-5">
+            <h1 class="fw-bold text-primary">Pembayaran</h1>
+            <p class="text-muted">Pilih metode pembayaran yang sesuai untuk Anda</p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <!-- Order Summary -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-receipt me-2"></i>Ringkasan Pesanan</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="mb-1"><strong>ID Pesanan:</strong> <span id="paymentOrderId">-</span></p>
+                            <p class="mb-1"><strong>Nama:</strong> <span id="paymentCustomerName">-</span></p>
+                            <p class="mb-1"><strong>Layanan:</strong> <span id="paymentService">-</span></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="mb-1"><strong>Jumlah:</strong> <span id="paymentQuantity">-</span></p>
+                            <p class="mb-1"><strong>Status:</strong> <span id="paymentStatus">-</span></p>
+                            <p class="mb-1"><strong>Total:</strong> <span id="paymentTotal" class="fw-bold text-primary fs-5">-</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-credit-card me-2"></i>Pilih Metode Pembayaran</h5>
+                </div>
+                <div class="card-body">
+                    <form id="paymentForm">
+                        <!-- Cash Payment -->
+                        <div class="payment-method mb-3">
+                            <input type="radio" class="form-check-input" name="paymentMethod" id="cash" value="cash">
+                            <label class="form-check-label w-100" for="cash">
+                                <div class="card payment-card">
+                                    <div class="card-body d-flex align-items-center">
+                                        <i class="fas fa-money-bill-wave fs-2 text-success me-3"></i>
+                                        <div>
+                                            <h6 class="mb-1">Bayar Tunai</h6>
+                                            <small class="text-muted">Bayar langsung saat pengambilan/pengantaran</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <!-- Bank Transfer -->
+                        <div class="payment-method mb-3">
+                            <input type="radio" class="form-check-input" name="paymentMethod" id="transfer" value="transfer">
+                            <label class="form-check-label w-100" for="transfer">
+                                <div class="card payment-card">
+                                    <div class="card-body d-flex align-items-center">
+                                        <i class="fas fa-university fs-2 text-primary me-3"></i>
+                                        <div>
+                                            <h6 class="mb-1">Transfer Bank</h6>
+                                            <small class="text-muted">BCA, Mandiri, BNI, BRI</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <!-- E-Wallet -->
+                        <div class="payment-method mb-3">
+                            <input type="radio" class="form-check-input" name="paymentMethod" id="ewallet" value="ewallet">
+                            <label class="form-check-label w-100" for="ewallet">
+                                <div class="card payment-card">
+                                    <div class="card-body d-flex align-items-center">
+                                        <i class="fas fa-mobile-alt fs-2 text-info me-3"></i>
+                                        <div>
+                                            <h6 class="mb-1">E-Wallet</h6>
+                                            <small class="text-muted">GoPay, OVO, DANA, ShopeePay</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <!-- QRIS -->
+                        <div class="payment-method mb-4">
+                            <input type="radio" class="form-check-input" name="paymentMethod" id="qris" value="qris">
+                            <label class="form-check-label w-100" for="qris">
+                                <div class="card payment-card">
+                                    <div class="card-body d-flex align-items-center">
+                                        <i class="fas fa-qrcode fs-2 text-warning me-3"></i>
+                                        <div>
+                                            <h6 class="mb-1">QRIS</h6>
+                                            <small class="text-muted">Scan QR Code untuk pembayaran instan</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <!-- Payment Details -->
+                        <div id="paymentDetails" style="display: none;">
+                            <!-- Transfer Details -->
+                            <div id="transferDetails" class="payment-details">
+                                <div class="card bg-light">
+                                    <div class="card-body">
+                                        <h6 class="text-primary mb-3">Informasi Transfer</h6>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <div class="bank-info">
+                                                    <strong>Bank BCA</strong><br>
+                                                    <span class="text-muted">No. Rek:</span> 1234567890<br>
+                                                    <span class="text-muted">A.n:</span> Laundry Cuci Kilat
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <div class="bank-info">
+                                                    <strong>Bank Mandiri</strong><br>
+                                                    <span class="text-muted">No. Rek:</span> 0987654321<br>
+                                                    <span class="text-muted">A.n:</span> Laundry Cuci Kilat
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="alert alert-info">
+                                            <i class="fas fa-info-circle me-2"></i>
+                                            Setelah transfer, kirim bukti pembayaran via WhatsApp ke <strong>+62 812-3456-7890</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- E-Wallet Details -->
+                            <div id="ewalletDetails" class="payment-details">
+                                <div class="card bg-light">
+                                    <div class="card-body">
+                                        <h6 class="text-primary mb-3">Informasi E-Wallet</h6>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <div class="ewallet-info">
+                                                    <strong>GoPay</strong><br>
+                                                    <span class="text-muted">No. HP:</span> +62 812-3456-7890
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <div class="ewallet-info">
+                                                    <strong>OVO</strong><br>
+                                                    <span class="text-muted">No. HP:</span> +62 812-3456-7890
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="alert alert-info">
+                                            <i class="fas fa-info-circle me-2"></i>
+                                            Transfer ke nomor di atas dan kirim screenshot via WhatsApp
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- QRIS Details -->
+                            <div id="qrisDetails" class="payment-details">
+                                <div class="card bg-light">
+                                    <div class="card-body text-center">
+                                        <h6 class="text-primary mb-3">Scan QR Code</h6>
+                                        <div class="qr-code-placeholder mb-3">
+                                            <i class="fas fa-qrcode" style="font-size: 150px; color: #ddd;"></i>
+                                            <p class="text-muted mt-2">QR Code untuk pembayaran</p>
+                                        </div>
+                                        <div class="alert alert-info">
+                                            <i class="fas fa-info-circle me-2"></i>
+                                            Scan QR Code dengan aplikasi pembayaran favorit Anda
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-success btn-lg">
+                                <i class="fas fa-check me-2"></i>Konfirmasi Pembayaran
+                            </button>
+                            <a asp-page="/Status" class="btn btn-outline-secondary btn-lg ms-3">
+                                <i class="fas fa-arrow-left me-2"></i>Kembali ke Status
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Order Modal -->
+    <div class="modal fade" id="searchOrderModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cari Pesanan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">ID Pesanan</label>
+                        <input type="text" class="form-control" id="searchOrderId" placeholder="Masukkan ID Pesanan">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary" onclick="loadOrderForPayment()">Cari</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if there's an order ID in URL or load from recent orders
+            const urlParams = new URLSearchParams(window.location.search);
+            const orderIdFromUrl = urlParams.get('orderId');
+            
+            if (orderIdFromUrl) {
+                loadOrderData(orderIdFromUrl);
+            } else {
+                // Show modal to search for order
+                const modal = new bootstrap.Modal(document.getElementById('searchOrderModal'));
+                modal.show();
+            }
+
+            // Payment method change handler
+            document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    showPaymentDetails(this.value);
+                });
+            });
+
+            // Form submission
+            document.getElementById('paymentForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const selectedMethod = document.querySelector('input[name="paymentMethod"]:checked');
+                if (!selectedMethod) {
+                    alert('Pilih metode pembayaran');
+                    return;
+                }
+
+                processPayment(selectedMethod.value);
+            });
+        });
+
+        function loadOrderForPayment() {
+            const orderId = document.getElementById('searchOrderId').value.trim();
+            if (!orderId) {
+                alert('Masukkan ID Pesanan');
+                return;
+            }
+
+            loadOrderData(orderId);
+            bootstrap.Modal.getInstance(document.getElementById('searchOrderModal')).hide();
+        }
+
+        function loadOrderData(orderId) {
+            const orders = JSON.parse(localStorage.getItem('laundryOrders') || '[]');
+            const order = orders.find(o => o.orderId === orderId);
+
+            if (order) {
+                document.getElementById('paymentOrderId').textContent = order.orderId;
+                document.getElementById('paymentCustomerName').textContent = order.namaLengkap;
+                
+                const serviceNames = {
+                    'cuci-kering': 'Cuci Kering',
+                    'cuci-setrika': 'Cuci Setrika',
+                    'dry-clean': 'Dry Clean',
+                    'express': 'Express (6 Jam)',
+                    'sepatu': 'Cuci Sepatu',
+                    'tas-koper': 'Cuci Tas & Koper'
+                };
+                
+                document.getElementById('paymentService').textContent = serviceNames[order.jenisLayanan] || order.jenisLayanan;
+                document.getElementById('paymentQuantity').textContent = order.jumlah + ' ' + getUnit(order.jenisLayanan);
+                document.getElementById('paymentStatus').textContent = order.status;
+                document.getElementById('paymentTotal').textContent = order.total;
+            } else {
+                alert('Pesanan tidak ditemukan');
+                window.location.href = '/Status';
+            }
+        }
+
+        function getUnit(serviceType) {
+            const units = {
+                'cuci-kering': 'kg',
+                'cuci-setrika': 'kg',
+                'dry-clean': 'pcs',
+                'express': 'kg',
+                'sepatu': 'pasang',
+                'tas-koper': 'pcs'
+            };
+            return units[serviceType] || 'kg';
+        }
+
+        function showPaymentDetails(method) {
+            // Hide all payment details
+            document.querySelectorAll('.payment-details').forEach(detail => {
+                detail.style.display = 'none';
+            });
+
+            // Show selected payment details
+            if (method === 'transfer') {
+                document.getElementById('transferDetails').style.display = 'block';
+            } else if (method === 'ewallet') {
+                document.getElementById('ewalletDetails').style.display = 'block';
+            } else if (method === 'qris') {
+                document.getElementById('qrisDetails').style.display = 'block';
+            }
+
+            // Show payment details container
+            document.getElementById('paymentDetails').style.display = 'block';
+        }
+
+        function processPayment(method) {
+            const orderId = document.getElementById('paymentOrderId').textContent;
+            
+            // Update order status in localStorage
+            const orders = JSON.parse(localStorage.getItem('laundryOrders') || '[]');
+            const orderIndex = orders.findIndex(o => o.orderId === orderId);
+            
+            if (orderIndex !== -1) {
+                orders[orderIndex].paymentMethod = method;
+                orders[orderIndex].paymentStatus = method === 'cash' ? 'Belum Dibayar' : 'Menunggu Konfirmasi';
+                orders[orderIndex].paymentDate = new Date().toLocaleDateString('id-ID');
+                localStorage.setItem('laundryOrders', JSON.stringify(orders));
+            }
+
+            // Show success message
+            let message = '';
+            switch(method) {
+                case 'cash':
+                    message = 'Pembayaran tunai akan dilakukan saat pengambilan/pengantaran.';
+                    break;
+                case 'transfer':
+                    message = 'Silakan transfer ke rekening yang tertera dan kirim bukti pembayaran via WhatsApp.';
+                    break;
+                case 'ewallet':
+                    message = 'Silakan transfer ke nomor e-wallet yang tertera dan kirim screenshot via WhatsApp.';
+                    break;
+                case 'qris':
+                    message = 'Silakan scan QR Code untuk menyelesaikan pembayaran.';
+                    break;
+            }
+
+            alert('Pembayaran berhasil dikonfirmasi!\n\n' + message);
+            
+            // Redirect to invoice page
+            window.location.href = '/Struk?orderId=' + orderId;
+        }
+    </script>
+}

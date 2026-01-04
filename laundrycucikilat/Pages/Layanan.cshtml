@@ -1,0 +1,214 @@
+@page
+@model LaundryModel
+@{
+    ViewData["Title"] = "Layanan Kami";
+}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12 text-center mb-5">
+            <h1 class="fw-bold text-primary">Layanan Laundry Kami</h1>
+            <p class="text-muted">Pilih layanan yang sesuai dengan kebutuhan Anda</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Cuci Kering -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header text-center">
+                    <div class="service-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h4 class="service-title">Cuci Kering</h4>
+                </div>
+                <div class="card-body">
+                    <div class="service-price text-center mb-3">Rp 5.000/kg</div>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success me-2"></i>Pakaian dicuci bersih</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Dikeringkan dengan mesin</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Dilipat rapi</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Selesai dalam 24 jam</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Minimum 3kg</li>
+                    </ul>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-page="/Pemesanan" class="btn btn-primary">Pesan Sekarang</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cuci Setrika -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header text-center">
+                    <div class="service-icon">
+                        <div class="icon-stack">
+                            <i class="fas fa-tshirt icon-base"></i>
+                            <i class="fas fa-fire icon-overlay"></i>
+                        </div>
+                    </div>
+                    <h4 class="service-title">Cuci Setrika</h4>
+                </div>
+                <div class="card-body">
+                    <div class="service-price text-center mb-3">Rp 7.000/kg</div>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success me-2"></i>Pakaian dicuci bersih</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Dikeringkan dengan mesin</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Disetrika rapi</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Digantung dengan hanger</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Selesai dalam 48 jam</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Minimum 3kg</li>
+                    </ul>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-page="/Pemesanan" class="btn btn-primary">Pesan Sekarang</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dry Clean -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header text-center">
+                    <div class="service-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h4 class="service-title">Dry Clean</h4>
+                </div>
+                <div class="card-body">
+                    <div class="service-price text-center mb-3">Rp 15.000/pcs</div>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success me-2"></i>Pembersihan khusus</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Untuk pakaian premium</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Jas, gaun, coat</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Disetrika profesional</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Selesai dalam 3-5 hari</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Dikemas dengan plastik</li>
+                    </ul>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-page="/Pemesanan" class="btn btn-primary">Pesan Sekarang</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Express Service -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header text-center">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h4 class="service-title">Express (6 Jam)</h4>
+                </div>
+                <div class="card-body">
+                    <div class="service-price text-center mb-3">Rp 10.000/kg</div>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success me-2"></i>Layanan kilat 6 jam</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Cuci + setrika</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Prioritas utama</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Kualitas terjamin</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Minimum 2kg</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Tersedia 24/7</li>
+                    </ul>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-page="/Pemesanan" class="btn btn-primary">Pesan Sekarang</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sepatu -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header text-center">
+                    <div class="service-icon">
+                        <i class="fas fa-shoe-prints"></i>
+                    </div>
+                    <h4 class="service-title">Cuci Sepatu</h4>
+                </div>
+                <div class="card-body">
+                    <div class="service-price text-center mb-3">Rp 25.000/pasang</div>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success me-2"></i>Deep cleaning sepatu</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Semua jenis sepatu</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Pembersihan sol</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Deodorizer gratis</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Selesai dalam 2-3 hari</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Garansi kepuasan</li>
+                    </ul>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-page="/Pemesanan" class="btn btn-primary">Pesan Sekarang</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tas & Koper -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header text-center">
+                    <div class="service-icon">
+                        <i class="fas fa-suitcase"></i>
+                    </div>
+                    <h4 class="service-title">Cuci Tas & Koper</h4>
+                </div>
+                <div class="card-body">
+                    <div class="service-price text-center mb-3">Rp 35.000/pcs</div>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success me-2"></i>Pembersihan menyeluruh</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Tas ransel, koper, dll</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Pembersihan dalam & luar</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Treatment khusus</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Selesai dalam 3-5 hari</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Packing aman</li>
+                    </ul>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-page="/Pemesanan" class="btn btn-primary">Pesan Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional Services -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <h3 class="text-center text-primary mb-4">Layanan Tambahan</h3>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5><i class="fas fa-truck text-primary me-2"></i>Antar Jemput</h5>
+                    <p class="mb-1">Gratis untuk pesanan minimal Rp 50.000</p>
+                    <p class="text-muted small">Radius 5km dari toko</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5><i class="fas fa-spray-can text-primary me-2"></i>Pewangi Khusus</h5>
+                    <p class="mb-1">Tambahan Rp 2.000/kg</p>
+                    <p class="text-muted small">Berbagai pilihan aroma</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+            <div class="card bg-primary text-white">
+                <div class="card-body py-4">
+                    <h4>Butuh Konsultasi Layanan?</h4>
+                    <p class="mb-3">Tim kami siap membantu Anda memilih layanan yang tepat</p>
+                    <a asp-page="/Kontak" class="btn btn-light btn-lg">
+                        <i class="fas fa-phone me-2"></i>Hubungi Kami
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

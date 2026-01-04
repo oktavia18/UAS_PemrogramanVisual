@@ -1,0 +1,437 @@
+@page
+@model StatusModel
+@{
+    ViewData["Title"] = "Status Pesanan";
+}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12 text-center mb-5">
+            <h1 class="fw-bold text-primary">Status Pesanan</h1>
+            <p class="text-muted">Lacak status pesanan laundry Anda</p>
+        </div>
+    </div>
+
+    <!-- Search Order -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center mb-4">Cari Pesanan Anda</h5>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="orderIdInput" placeholder="Masukkan ID Pesanan (contoh: LCK12345678)">
+                        <button class="btn btn-primary" type="button" onclick="searchOrder()">
+                            <i class="fas fa-search me-2"></i>Cari
+                        </button>
+                    </div>
+                    <small class="text-muted">ID Pesanan dapat ditemukan di SMS/WhatsApp konfirmasi</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Details -->
+    <div id="orderDetails" style="display: none;">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="mb-0"><i class="fas fa-receipt me-2"></i>Detail Pesanan</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h6 class="text-primary">Informasi Pesanan</h6>
+                                <p class="mb-1"><strong>ID Pesanan:</strong> <span id="displayOrderId"></span></p>
+                                <p class="mb-1"><strong>Tanggal Pesan:</strong> <span id="displayTanggalPesan"></span></p>
+                                <p class="mb-1"><strong>Status:</strong> <span id="displayStatus" class="status-badge"></span></p>
+                                <p class="mb-1"><strong>Estimasi Selesai:</strong> <span id="displayEstimasi"></span></p>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="text-primary">Data Pelanggan</h6>
+                                <p class="mb-1"><strong>Nama:</strong> <span id="displayNama"></span></p>
+                                <p class="mb-1"><strong>Telepon:</strong> <span id="displayTelepon"></span></p>
+                                <p class="mb-1"><strong>Alamat:</strong> <span id="displayAlamat"></span></p>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h6 class="text-primary">Detail Layanan</h6>
+                                <div class="table-responsive">
+                                    <table class="table table-borderless">
+                                        <tbody id="serviceDetails">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Progress Tracker -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h6 class="text-primary mb-3">Progress Pesanan</h6>
+                                <div class="progress-tracker">
+                                    <div class="progress-step" id="step1">
+                                        <div class="progress-icon">
+                                            <i class="fas fa-clock"></i>
+                                        </div>
+                                        <div class="progress-text">
+                                            <strong>Menunggu Konfirmasi</strong>
+                                            <small>Pesanan sedang diproses</small>
+                                        </div>
+                                    </div>
+                                    <div class="progress-step" id="step2">
+                                        <div class="progress-icon">
+                                            <i class="fas fa-truck"></i>
+                                        </div>
+                                        <div class="progress-text">
+                                            <strong>Dijemput</strong>
+                                            <small>Pakaian sedang dijemput</small>
+                                        </div>
+                                    </div>
+                                    <div class="progress-step" id="step3">
+                                        <div class="progress-icon">
+                                            <i class="fas fa-soap"></i>
+                                        </div>
+                                        <div class="progress-text">
+                                            <strong>Sedang Dicuci</strong>
+                                            <small>Proses pencucian berlangsung</small>
+                                        </div>
+                                    </div>
+                                    <div class="progress-step" id="step4">
+                                        <div class="progress-icon">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        <div class="progress-text">
+                                            <strong>Selesai</strong>
+                                            <small>Siap untuk diantar/diambil</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <button class="btn btn-primary me-3" onclick="window.print()">
+                                    <i class="fas fa-print me-2"></i>Print Status
+                                </button>
+                                <button class="btn btn-info me-3" onclick="downloadStatusPDF()">
+                                    <i class="fas fa-download me-2"></i>Download PDF
+                                </button>
+                                <a asp-page="/Struk" class="btn btn-success me-3">
+                                    <i class="fas fa-receipt me-2"></i>Lihat Struk
+                                </a>
+                                <a asp-page="/Kontak" class="btn btn-outline-primary">
+                                    <i class="fas fa-phone me-2"></i>Hubungi Kami
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- No Order Found -->
+    <div id="noOrderFound" style="display: none;">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card text-center">
+                    <div class="card-body py-5">
+                        <i class="fas fa-search fs-1 text-muted mb-3"></i>
+                        <h5>Pesanan Tidak Ditemukan</h5>
+                        <p class="text-muted">ID Pesanan yang Anda masukkan tidak ditemukan. Pastikan ID pesanan benar.</p>
+                        <a asp-page="/Pemesanan" class="btn btn-primary">
+                            <i class="fas fa-plus me-2"></i>Buat Pesanan Baru
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Orders -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <h3 class="text-center text-primary mb-4">Pesanan Terbaru</h3>
+            <div id="recentOrders">
+                <div class="text-center text-muted">
+                    <i class="fas fa-inbox fs-1 mb-3"></i>
+                    <p>Belum ada pesanan</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+        // Check for order ID in URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderIdFromUrl = urlParams.get('orderId');
+        
+        if (orderIdFromUrl) {
+            document.getElementById('orderIdInput').value = orderIdFromUrl;
+            searchOrder();
+        }
+
+        // Load recent orders on page load
+        loadRecentOrders();
+
+        async function searchOrder() {
+            const orderId = document.getElementById('orderIdInput').value.trim();
+            
+            if (!orderId) {
+                alert('Masukkan ID Pesanan');
+                return;
+            }
+
+            try {
+                const order = await LaundryAPI.getOrderFallback(orderId);
+                
+                if (order) {
+                    displayOrderDetails(order);
+                } else {
+                    showNoOrderFound();
+                }
+            } catch (error) {
+                LaundryAPI.showError('Gagal mencari pesanan: ' + error.message);
+            }
+        }
+
+        function displayOrderDetails(order) {
+            document.getElementById('orderDetails').style.display = 'block';
+            document.getElementById('noOrderFound').style.display = 'none';
+
+            // Fill order information
+            document.getElementById('displayOrderId').textContent = order.orderId;
+            document.getElementById('displayTanggalPesan').textContent = order.tanggalPesan;
+            document.getElementById('displayEstimasi').textContent = order.estimasiSelesai;
+            document.getElementById('displayNama').textContent = order.namaLengkap;
+            document.getElementById('displayTelepon').textContent = order.noTelepon;
+            document.getElementById('displayAlamat').textContent = order.alamat;
+
+            // Set status badge
+            const statusElement = document.getElementById('displayStatus');
+            statusElement.textContent = order.status;
+            statusElement.className = 'status-badge ' + getStatusClass(order.status);
+
+            // Fill service details
+            const serviceDetails = document.getElementById('serviceDetails');
+            const serviceNames = {
+                'cuci-kering': 'Cuci Kering',
+                'cuci-setrika': 'Cuci Setrika',
+                'dry-clean': 'Dry Clean',
+                'express': 'Express (6 Jam)',
+                'sepatu': 'Cuci Sepatu',
+                'tas-koper': 'Cuci Tas & Koper'
+            };
+
+            serviceDetails.innerHTML = `
+                <tr>
+                    <td><strong>Layanan:</strong></td>
+                    <td>${serviceNames[order.jenisLayanan] || order.jenisLayanan}</td>
+                </tr>
+                <tr>
+                    <td><strong>Jumlah:</strong></td>
+                    <td>${order.jumlah} ${getUnit(order.jenisLayanan)}</td>
+                </tr>
+                <tr>
+                    <td><strong>Antar Jemput:</strong></td>
+                    <td>${order.antarJemput ? 'Ya' : 'Tidak'}</td>
+                </tr>
+                <tr>
+                    <td><strong>Pewangi Khusus:</strong></td>
+                    <td>${order.pewangiKhusus ? 'Ya' : 'Tidak'}</td>
+                </tr>
+                <tr>
+                    <td><strong>Metode Pembayaran:</strong></td>
+                    <td>${order.paymentMethod || 'Belum dipilih'}</td>
+                </tr>
+                <tr>
+                    <td><strong>Total Biaya:</strong></td>
+                    <td class="fw-bold text-primary">${order.total}</td>
+                </tr>
+            `;
+
+            // Update progress tracker
+            updateProgressTracker(order.status);
+        }
+
+        function showNoOrderFound() {
+            document.getElementById('orderDetails').style.display = 'none';
+            document.getElementById('noOrderFound').style.display = 'block';
+        }
+
+        function getStatusClass(status) {
+            switch(status) {
+                case 'Menunggu Konfirmasi': return 'status-pending';
+                case 'Dijemput': return 'status-processing';
+                case 'Sedang Dicuci': return 'status-processing';
+                case 'Selesai': return 'status-completed';
+                default: return 'status-pending';
+            }
+        }
+
+        function getUnit(serviceType) {
+            const units = {
+                'cuci-kering': 'kg',
+                'cuci-setrika': 'kg',
+                'dry-clean': 'pcs',
+                'express': 'kg',
+                'sepatu': 'pasang',
+                'tas-koper': 'pcs'
+            };
+            return units[serviceType] || 'kg';
+        }
+
+        function updateProgressTracker(status) {
+            // Reset all steps
+            document.querySelectorAll('.progress-step').forEach(step => {
+                step.classList.remove('active', 'completed');
+            });
+
+            // Set active/completed steps based on status
+            switch(status) {
+                case 'Menunggu Konfirmasi':
+                    document.getElementById('step1').classList.add('active');
+                    break;
+                case 'Dijemput':
+                    document.getElementById('step1').classList.add('completed');
+                    document.getElementById('step2').classList.add('active');
+                    break;
+                case 'Sedang Dicuci':
+                    document.getElementById('step1').classList.add('completed');
+                    document.getElementById('step2').classList.add('completed');
+                    document.getElementById('step3').classList.add('active');
+                    break;
+                case 'Selesai':
+                    document.getElementById('step1').classList.add('completed');
+                    document.getElementById('step2').classList.add('completed');
+                    document.getElementById('step3').classList.add('completed');
+                    document.getElementById('step4').classList.add('active');
+                    break;
+            }
+        }
+
+        function loadRecentOrders() {
+            const orders = JSON.parse(localStorage.getItem('laundryOrders') || '[]');
+            const recentOrdersContainer = document.getElementById('recentOrders');
+
+            if (orders.length === 0) {
+                return;
+            }
+
+            // Show last 3 orders
+            const recentOrders = orders.slice(-3).reverse();
+            
+            recentOrdersContainer.innerHTML = recentOrders.map(order => `
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title">${order.orderId}</h6>
+                            <p class="card-text small">
+                                <strong>Tanggal:</strong> ${order.tanggalPesan}<br>
+                                <strong>Status:</strong> <span class="status-badge ${getStatusClass(order.status)}">${order.status}</span>
+                            </p>
+                            <button class="btn btn-sm btn-outline-primary" onclick="document.getElementById('orderIdInput').value='${order.orderId}'; searchOrder();">
+                                Lihat Detail
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            recentOrdersContainer.innerHTML = '<div class="row">' + recentOrdersContainer.innerHTML + '</div>';
+        }
+
+        // Allow Enter key to search
+        document.getElementById('orderIdInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchOrder();
+            }
+        });
+
+        // Download Status as PDF using backend API
+        async function downloadStatusPDF() {
+            const orderDetails = document.getElementById('orderDetails');
+            
+            if (!orderDetails || orderDetails.style.display === 'none') {
+                alert('Tidak ada data pesanan untuk diunduh');
+                return;
+            }
+
+            const orderId = document.getElementById('displayOrderId').textContent;
+            
+            if (!orderId) {
+                alert('ID Pesanan tidak ditemukan');
+                return;
+            }
+
+            try {
+                // Show loading state
+                const downloadBtn = event.target;
+                const originalText = downloadBtn.innerHTML;
+                downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Generating PDF...';
+                downloadBtn.disabled = true;
+
+                // Call backend API to generate PDF
+                const response = await fetch(`/api/order/${orderId}/pdf`);
+                
+                if (response.ok) {
+                    // Get the PDF blob
+                    const blob = await response.blob();
+                    
+                    // Create download link
+                    const url = window.URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = url;
+                    
+                    // Get filename from response headers or create default
+                    const contentDisposition = response.headers.get('Content-Disposition');
+                    let filename = `Detail_Pesanan_${orderId}_${new Date().toISOString().slice(0,10)}.pdf`;
+                    
+                    if (contentDisposition) {
+                        const filenameMatch = contentDisposition.match(/filename="(.+)"/);
+                        if (filenameMatch) {
+                            filename = filenameMatch[1];
+                        }
+                    }
+                    
+                    link.download = filename;
+                    document.body.appendChild(link);
+                    link.click();
+                    
+                    // Cleanup
+                    document.body.removeChild(link);
+                    window.URL.revokeObjectURL(url);
+                    
+                    // Show success message
+                    if (typeof showToast === 'function') {
+                        showToast('PDF berhasil diunduh!', 'success');
+                    } else {
+                        alert('PDF berhasil diunduh!');
+                    }
+                } else {
+                    const errorData = await response.text();
+                    console.error('PDF generation error:', errorData);
+                    alert(`Gagal membuat PDF: ${response.status}`);
+                }
+            } catch (error) {
+                console.error('Error downloading PDF:', error);
+                alert('Terjadi kesalahan saat membuat PDF');
+            } finally {
+                // Restore button state
+                const downloadBtn = event.target;
+                if (downloadBtn) {
+                    downloadBtn.innerHTML = originalText;
+                    downloadBtn.disabled = false;
+                }
+            }
+        }
+    </script>
+}

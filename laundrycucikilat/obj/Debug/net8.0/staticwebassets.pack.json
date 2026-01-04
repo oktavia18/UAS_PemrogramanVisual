@@ -1,0 +1,401 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\laundrycucikilat.bundle.scp.css",
+      "PackagePath": "staticwebassets\\laundrycucikilat.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\animation-test.html",
+      "PackagePath": "staticwebassets\\animation-test.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\background-test.html",
+      "PackagePath": "staticwebassets\\background-test.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\css\\homepage.css",
+      "PackagePath": "staticwebassets\\css\\homepage.css"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\css\\interactive-animations.css",
+      "PackagePath": "staticwebassets\\css\\interactive-animations.css"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\css\\professional-homepage.css",
+      "PackagePath": "staticwebassets\\css\\professional-homepage.css"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\debug-employee-functions.html",
+      "PackagePath": "staticwebassets\\debug-employee-functions.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\debug-session.html",
+      "PackagePath": "staticwebassets\\debug-session.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\homepage-test.html",
+      "PackagePath": "staticwebassets\\homepage-test.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\images\\washing-machines-new.jpg",
+      "PackagePath": "staticwebassets\\images\\washing-machines-new.jpg"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\images\\washing-machines.jpg",
+      "PackagePath": "staticwebassets\\images\\washing-machines.jpg"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\js\\admin.js",
+      "PackagePath": "staticwebassets\\js\\admin.js"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\js\\employee.js",
+      "PackagePath": "staticwebassets\\js\\employee.js"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\js\\mongodb-api.js",
+      "PackagePath": "staticwebassets\\js\\mongodb-api.js"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\local-image-test.html",
+      "PackagePath": "staticwebassets\\local-image-test.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\new-washing-machine-test.html",
+      "PackagePath": "staticwebassets\\new-washing-machine-test.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\simple-hover-test.html",
+      "PackagePath": "staticwebassets\\simple-hover-test.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\simple-login.html",
+      "PackagePath": "staticwebassets\\simple-login.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\test-admin-pdf-export.html",
+      "PackagePath": "staticwebassets\\test-admin-pdf-export.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\test-api-endpoints.html",
+      "PackagePath": "staticwebassets\\test-api-endpoints.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\test-employee-edit-delete.html",
+      "PackagePath": "staticwebassets\\test-employee-edit-delete.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\test-export-pdf-fix.html",
+      "PackagePath": "staticwebassets\\test-export-pdf-fix.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\test-homepage.html",
+      "PackagePath": "staticwebassets\\test-homepage.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\test-image.html",
+      "PackagePath": "staticwebassets\\test-image.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\test-metode-pembayaran-sederhana.html",
+      "PackagePath": "staticwebassets\\test-metode-pembayaran-sederhana.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\test-normal-flow.html",
+      "PackagePath": "staticwebassets\\test-normal-flow.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\test-payment-method.html",
+      "PackagePath": "staticwebassets\\test-payment-method.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\test-payment-simple.html",
+      "PackagePath": "staticwebassets\\test-payment-simple.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\test-pdf-features.html",
+      "PackagePath": "staticwebassets\\test-pdf-features.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\test-pdf-report-fix.html",
+      "PackagePath": "staticwebassets\\test-pdf-report-fix.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\test-pdf.html",
+      "PackagePath": "staticwebassets\\test-pdf.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\test-pilih-pembayaran.html",
+      "PackagePath": "staticwebassets\\test-pilih-pembayaran.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\test-redirect-fix.html",
+      "PackagePath": "staticwebassets\\test-redirect-fix.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\test-redirect.html",
+      "PackagePath": "staticwebassets\\test-redirect.html"
+    },
+    {
+      "Id": "C:\\laundrycucikilat\\laundrycucikilat\\wwwroot\\washing-machine-test.html",
+      "PackagePath": "staticwebassets\\washing-machine-test.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.laundrycucikilat.props",
+      "PackagePath": "build\\laundrycucikilat.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.laundrycucikilat.props",
+      "PackagePath": "buildMultiTargeting\\laundrycucikilat.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.laundrycucikilat.props",
+      "PackagePath": "buildTransitive\\laundrycucikilat.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.laundrycucikilat.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

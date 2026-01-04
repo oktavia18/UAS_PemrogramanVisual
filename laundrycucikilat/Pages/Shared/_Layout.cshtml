@@ -1,0 +1,785 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Last-Modified" content="0" />
+    <meta name="cache-control" content="no-cache" />
+    <meta name="expires" content="0" />
+    <meta name="pragma" content="no-cache" />
+    <meta name="description" content="Laundry Cuci Kilat - Layanan laundry terpercaya dengan kualitas terbaik dan pelayanan cepat. Cuci kering, cuci setrika, dry clean, dan layanan express." />
+    <meta name="keywords" content="laundry, cuci kilat, dry clean, cuci setrika, antar jemput, jakarta" />
+    <meta name="author" content="Laundry Cuci Kilat" />
+    <title>@ViewData["Title"] - Laundry Cuci Kilat</title>
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/homepage.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/interactive-animations.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/laundrycucikilat.styles.css" asp-append-version="true" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== ENHANCED NAVIGATION ANIMATIONS ===== */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(135, 206, 235, 0.2);
+            padding: 1rem 0;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(255, 255, 255, 0.98) !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important;
+            transform: translateY(0) !important;
+        }
+        
+        /* Enhanced Brand Logo Animation */
+        .brand-logo {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4A90E2 0%, #87CEEB 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+            transition: all 0.3s ease !important;
+            cursor: pointer;
+        }
+        
+        .brand-logo:hover {
+            transform: scale(1.1) rotate(5deg) !important;
+            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.5) !important;
+            background: linear-gradient(135deg, #5BA0F2, #97DEFF) !important;
+        }
+        
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease !important;
+        }
+        
+        .navbar-brand:hover .brand-text {
+            transform: translateX(3px) !important;
+        }
+        
+        .brand-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #4A90E2;
+            line-height: 1;
+            transition: all 0.3s ease !important;
+        }
+        
+        .navbar-brand:hover .brand-name {
+            color: #2E86AB !important;
+        }
+        
+        .brand-tagline {
+            font-size: 0.75rem;
+            color: #6C757D;
+            font-style: italic;
+            line-height: 1;
+            transition: all 0.3s ease !important;
+        }
+        
+        .navbar-brand:hover .brand-tagline {
+            color: #4A90E2 !important;
+        }
+        
+        /* Enhanced Navigation Links */
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            color: #2C3E50 !important;
+            margin: 0 0.25rem;
+            padding: 0.75rem 1rem !important;
+            border-radius: 25px;
+            transition: all 0.3s ease !important;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer !important;
+        }
+        
+        .navbar-nav .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(74, 144, 226, 0.1), transparent);
+            transition: left 0.5s ease !important;
+        }
+        
+        .navbar-nav .nav-link:hover::before {
+            left: 100% !important;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            background-color: #E6F3FF !important;
+            color: #4A90E2 !important;
+            transform: translateY(-2px) scale(1.05) !important;
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2) !important;
+        }
+        
+        .navbar-nav .nav-link.active {
+            background-color: #4A90E2 !important;
+            color: white !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4) !important;
+        }
+        
+        .navbar-nav .nav-link.active:hover {
+            background-color: #2E86AB !important;
+            transform: translateY(-3px) scale(1.05) !important;
+        }
+        
+        /* CTA Button in Navigation */
+        .btn-nav-cta {
+            background: linear-gradient(135deg, #4A90E2 0%, #87CEEB 100%) !important;
+            color: white !important;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+            border: none !important;
+            transition: all 0.3s ease !important;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-nav-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease !important;
+        }
+        
+        .btn-nav-cta:hover::before {
+            left: 100% !important;
+        }
+        
+        .btn-nav-cta:hover {
+            background: linear-gradient(135deg, #2E86AB 0%, #4A90E2 100%) !important;
+            color: white !important;
+            transform: translateY(-3px) scale(1.08) !important;
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.5) !important;
+        }
+        
+        /* Enhanced Dropdown Menu */
+        .dropdown-menu {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            animation: dropdownSlide 0.3s ease-out !important;
+        }
+        
+        @@keyframes dropdownSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-10px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .dropdown-item {
+            padding: 0.75rem 1.5rem;
+            transition: all 0.3s ease !important;
+            border-radius: 10px;
+            margin: 0 0.5rem;
+            cursor: pointer !important;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .dropdown-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(74, 144, 226, 0.1), transparent);
+            transition: left 0.4s ease !important;
+        }
+        
+        .dropdown-item:hover::before {
+            left: 100% !important;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #E6F3FF !important;
+            color: #4A90E2 !important;
+            transform: translateX(5px) scale(1.02) !important;
+            box-shadow: 0 2px 8px rgba(74, 144, 226, 0.2) !important;
+        }
+        
+        /* Mobile Navigation Enhancements */
+        .navbar-toggler {
+            border: none !important;
+            padding: 0.5rem;
+            transition: all 0.3s ease !important;
+            border-radius: 8px;
+        }
+        
+        .navbar-toggler:hover {
+            background-color: #E6F3FF !important;
+            transform: scale(1.1) !important;
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25) !important;
+        }
+        
+        @@media (max-width: 991px) {
+            .navbar-collapse {
+                background: rgba(255, 255, 255, 0.98);
+                border-radius: 15px;
+                margin-top: 1rem;
+                padding: 1rem;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                backdrop-filter: blur(15px);
+                animation: mobileMenuSlide 0.3s ease-out !important;
+            }
+            
+            @@keyframes mobileMenuSlide {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            .navbar-nav .nav-link {
+                margin: 0.25rem 0;
+                text-align: center;
+                border-radius: 12px;
+            }
+            
+            .navbar-nav .nav-link:hover {
+                transform: translateX(5px) scale(1.02) !important;
+            }
+            
+            .brand-name {
+                font-size: 1.2rem;
+            }
+            
+            .brand-tagline {
+                display: none;
+            }
+        }
+        
+        /* Icon Animations */
+        .nav-link i {
+            transition: all 0.3s ease !important;
+            margin-right: 0.5rem;
+        }
+        
+        .nav-link:hover i {
+            transform: scale(1.2) rotate(5deg) !important;
+            color: #4A90E2 !important;
+        }
+        
+        .dropdown-item i {
+            transition: all 0.3s ease !important;
+            margin-right: 0.5rem;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .dropdown-item:hover i {
+            transform: scale(1.1) rotate(5deg) !important;
+            color: #4A90E2 !important;
+        }
+        
+        /* Navbar Scroll Effect */
+        .navbar-scroll-effect {
+            transition: all 0.3s ease !important;
+        }
+        
+        /* Focus States for Accessibility */
+        .nav-link:focus,
+        .dropdown-item:focus,
+        .btn-nav-cta:focus {
+            outline: 2px solid #4A90E2 !important;
+            outline-offset: 2px !important;
+        }
+        
+        /* Reduced Motion Support */
+        @@media (prefers-reduced-motion: reduce) {
+            .navbar-nav .nav-link,
+            .dropdown-item,
+            .brand-logo,
+            .btn-nav-cta {
+                transition: none !important;
+                animation: none !important;
+            }
+            
+            .navbar-nav .nav-link:hover,
+            .dropdown-item:hover,
+            .brand-logo:hover,
+            .btn-nav-cta:hover {
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm navbar-scroll-effect">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" asp-page="/Index">
+                    <div class="brand-logo me-2">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <div class="brand-text">
+                        <span class="brand-name">Laundry Cuci Kilat</span>
+                        <small class="brand-tagline">Your Clean Corner</small>
+                    </div>
+                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Index">
+                                <i class="fas fa-home"></i>Beranda
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Layanan">
+                                <i class="fas fa-list"></i>Layanan
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn-nav-cta" asp-page="/Pemesanan">
+                                <i class="fas fa-shopping-cart"></i>Pesan Sekarang
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Status">
+                                <i class="fas fa-search"></i>Status
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Struk">
+                                <i class="fas fa-receipt"></i>Struk
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Kontak">
+                                <i class="fas fa-phone"></i>Kontak
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                                <i class="fas fa-user-cog"></i>Panel
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" asp-page="/Karyawan">
+                                    <i class="fas fa-users"></i>Menu Karyawan
+                                </a></li>
+                                <li><a class="dropdown-item" asp-page="/Admin">
+                                    <i class="fas fa-cog"></i>Menu Admin
+                                </a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" asp-page="/Login">
+                                    <i class="fas fa-sign-in-alt"></i>Login
+                                </a></li>
+                            </ul>
+                        </li>
+                        <!-- User Menu (shown when logged in) -->
+                        <li class="nav-item dropdown d-none" id="userMenu">
+                            <a class="nav-link dropdown-toggle" href="#" id="userMenuDropdown" role="button" data-bs-toggle="dropdown">
+                                <i class="fas fa-user-circle"></i>
+                                <span id="userName">User</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><h6 class="dropdown-header">
+                                    <i class="fas fa-info-circle me-2"></i>Informasi Akun
+                                </h6></li>
+                                <li><span class="dropdown-item-text">
+                                    <small class="text-muted">
+                                        <i class="fas fa-envelope me-2"></i><span id="userEmail">-</span><br>
+                                        <i class="fas fa-tag me-2"></i>Role: <span id="userRole">-</span>
+                                    </small>
+                                </span></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li id="adminMenuLink" class="d-none"><a class="dropdown-item" asp-page="/Admin">
+                                    <i class="fas fa-cog"></i>Dashboard Admin
+                                </a></li>
+                                <li id="employeeMenuLink" class="d-none"><a class="dropdown-item" asp-page="/Karyawan">
+                                    <i class="fas fa-users"></i>Dashboard Karyawan
+                                </a></li>
+                                <li><a class="dropdown-item" href="#" onclick="changePassword()">
+                                    <i class="fas fa-key"></i>Ubah Password
+                                </a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#" onclick="logout()">
+                                    <i class="fas fa-sign-out-alt"></i>Logout
+                                </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main role="main" class="flex-grow-1" style="padding-top: 80px;">
+        @RenderBody()
+    </main>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/mongodb-api.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+        // Enhanced Navigation Scroll Effect
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 50) {
+                $('.navbar').addClass('scrolled');
+            } else {
+                $('.navbar').removeClass('scrolled');
+            }
+        });
+        
+        // Enhanced Mobile Menu Animation
+        $('.navbar-toggler').click(function() {
+            $(this).toggleClass('active');
+        });
+        
+        // Smooth Scroll for Navigation Links
+        $('a[href^="#"]').on('click', function(event) {
+            var target = $(this.getAttribute('href'));
+            if( target.length ) {
+                event.preventDefault();
+                $('html, body').stop().animate({
+                    scrollTop: target.offset().top - 80
+                }, 1000);
+            }
+        });
+        
+        // Add active class to current page
+        $(document).ready(function() {
+            var currentPath = window.location.pathname;
+            $('.navbar-nav .nav-link').each(function() {
+                var linkPath = $(this).attr('href');
+                if (currentPath === linkPath || (currentPath === '/' && linkPath === '/Home')) {
+                    $(this).addClass('active');
+                }
+            });
+
+            // Check authentication status
+            checkAuthStatus();
+        });
+
+        // Authentication functions
+        async function checkAuthStatus() {
+            try {
+                const response = await fetch('/api/auth/check-session');
+                const result = await response.json();
+
+                if (result.isAuthenticated) {
+                    showUserMenu(result.user);
+                } else {
+                    showGuestMenu();
+                }
+            } catch (error) {
+                console.error('Auth check error:', error);
+                showGuestMenu();
+            }
+        }
+
+        function showUserMenu(user) {
+            // Hide guest menu, show user menu
+            $('#navbarDropdown').parent().addClass('d-none');
+            $('#userMenu').removeClass('d-none');
+
+            // Update user info
+            $('#userName').text(user.fullName);
+            $('#userEmail').text(user.email);
+            $('#userRole').text(user.role);
+
+            // Show appropriate dashboard link
+            if (user.role === 'Admin') {
+                $('#adminMenuLink').removeClass('d-none');
+                $('#employeeMenuLink').addClass('d-none');
+            } else if (user.role === 'Employee') {
+                $('#employeeMenuLink').removeClass('d-none');
+                $('#adminMenuLink').addClass('d-none');
+            }
+        }
+
+        function showGuestMenu() {
+            // Show guest menu, hide user menu
+            $('#navbarDropdown').parent().removeClass('d-none');
+            $('#userMenu').addClass('d-none');
+        }
+
+        async function logout() {
+            if (confirm('Apakah Anda yakin ingin logout?')) {
+                try {
+                    const response = await fetch('/api/auth/logout', {
+                        method: 'POST'
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        // Show success message
+                        showToast('Logout berhasil', 'success');
+                        
+                        // Redirect to login page after delay
+                        setTimeout(() => {
+                            window.location.href = '/Login';
+                        }, 1500);
+                    } else {
+                        showToast('Gagal logout: ' + result.message, 'error');
+                    }
+                } catch (error) {
+                    console.error('Logout error:', error);
+                    showToast('Terjadi kesalahan saat logout', 'error');
+                }
+            }
+        }
+
+        function changePassword() {
+            // Create modal for change password
+            const modalHtml = `
+                <div class="modal fade" id="changePasswordModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">
+                                    <i class="fas fa-key me-2"></i>Ubah Password
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="changePasswordForm">
+                                    <div class="mb-3">
+                                        <label class="form-label">Password Lama</label>
+                                        <input type="password" class="form-control" id="currentPassword" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Password Baru</label>
+                                        <input type="password" class="form-control" id="newPassword" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Konfirmasi Password Baru</label>
+                                        <input type="password" class="form-control" id="confirmPassword" required>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="button" class="btn btn-primary" onclick="submitChangePassword()">
+                                    <i class="fas fa-save me-2"></i>Simpan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Remove existing modal if any
+            $('#changePasswordModal').remove();
+            
+            // Add modal to body
+            $('body').append(modalHtml);
+            
+            // Show modal
+            $('#changePasswordModal').modal('show');
+        }
+
+        async function submitChangePassword() {
+            const currentPassword = $('#currentPassword').val();
+            const newPassword = $('#newPassword').val();
+            const confirmPassword = $('#confirmPassword').val();
+
+            // Validation
+            if (!currentPassword || !newPassword || !confirmPassword) {
+                showToast('Semua field wajib diisi', 'error');
+                return;
+            }
+
+            if (newPassword !== confirmPassword) {
+                showToast('Konfirmasi password tidak cocok', 'error');
+                return;
+            }
+
+            if (newPassword.length < 6) {
+                showToast('Password baru minimal 6 karakter', 'error');
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/auth/change-password', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        currentPassword: currentPassword,
+                        newPassword: newPassword,
+                        confirmPassword: confirmPassword
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    showToast('Password berhasil diubah', 'success');
+                    $('#changePasswordModal').modal('hide');
+                } else {
+                    showToast(result.message || 'Gagal mengubah password', 'error');
+                }
+            } catch (error) {
+                console.error('Change password error:', error);
+                showToast('Terjadi kesalahan sistem', 'error');
+            }
+        }
+
+        function showToast(message, type = 'info') {
+            // Create toast container if not exists
+            if ($('#toastContainer').length === 0) {
+                $('body').append('<div id="toastContainer" class="toast-container position-fixed top-0 end-0 p-3"></div>');
+            }
+
+            const toastId = 'toast_' + Date.now();
+            const bgClass = type === 'success' ? 'bg-success' : type === 'error' ? 'bg-danger' : 'bg-info';
+            const icon = type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-triangle' : 'info-circle';
+
+            const toastHtml = `
+                <div id="${toastId}" class="toast ${bgClass} text-white" role="alert">
+                    <div class="toast-body">
+                        <i class="fas fa-${icon} me-2"></i>${message}
+                    </div>
+                </div>
+            `;
+
+            $('#toastContainer').append(toastHtml);
+            
+            const toastElement = new bootstrap.Toast(document.getElementById(toastId));
+            toastElement.show();
+
+            // Remove toast after it's hidden
+            document.getElementById(toastId).addEventListener('hidden.bs.toast', function() {
+                $(this).remove();
+            });
+        }
+        
+        // Enhanced Interactive Animations
+        $(document).ready(function() {
+            // Add ripple effect to buttons
+            $('.btn, .service-card, .business-stats').on('click', function(e) {
+                var ripple = $('<span class="ripple"></span>');
+                var rect = this.getBoundingClientRect();
+                var size = Math.max(rect.width, rect.height);
+                var x = e.clientX - rect.left - size / 2;
+                var y = e.clientY - rect.top - size / 2;
+                
+                ripple.css({
+                    width: size + 'px',
+                    height: size + 'px',
+                    left: x + 'px',
+                    top: y + 'px'
+                });
+                
+                $(this).append(ripple);
+                
+                setTimeout(function() {
+                    ripple.remove();
+                }, 600);
+            });
+            
+            // Intersection Observer for scroll animations
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate-in');
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                });
+                
+                // Observe service cards
+                document.querySelectorAll('.service-card').forEach(card => {
+                    observer.observe(card);
+                });
+                
+                // Observe section titles
+                document.querySelectorAll('.services-section h2').forEach(title => {
+                    observer.observe(title);
+                });
+            }
+            
+            // Enhanced hover feedback for touch devices
+            if ('ontouchstart' in window) {
+                $('.service-card, .btn, .business-stats').on('touchstart', function() {
+                    $(this).addClass('touch-active');
+                }).on('touchend', function() {
+                    var self = this;
+                    setTimeout(function() {
+                        $(self).removeClass('touch-active');
+                    }, 150);
+                });
+            }
+            
+            // Keyboard navigation support
+            $('.service-card, .business-stats, .business-badge').attr('tabindex', '0');
+            
+            $('.service-card, .business-stats, .business-badge').on('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    $(this).click();
+                }
+            });
+            
+            // Performance optimization: Throttle scroll events
+            let ticking = false;
+            
+            function updateScrollEffects() {
+                // Update other scroll effects here
+                ticking = false;
+            }
+            
+            $(window).on('scroll', function() {
+                if (!ticking) {
+                    requestAnimationFrame(updateScrollEffects);
+                    ticking = true;
+                }
+            });
+        });
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

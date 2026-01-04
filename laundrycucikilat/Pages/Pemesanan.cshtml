@@ -1,0 +1,376 @@
+@page
+@model PemesananModel
+@{
+    ViewData["Title"] = "Pemesanan";
+}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12 text-center mb-5">
+            <h1 class="fw-bold text-primary">Form Pemesanan</h1>
+            <p class="text-muted">Isi form di bawah untuk memesan layanan laundry</p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0"><i class="fas fa-shopping-cart me-2"></i>Detail Pemesanan</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" id="orderForm">
+                        <!-- Data Pelanggan -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h5 class="text-primary mb-3">Data Pelanggan</h5>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Nama Lengkap *</label>
+                                <input type="text" class="form-control" name="NamaLengkap" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Nomor Telepon *</label>
+                                <input type="tel" class="form-control" name="NoTelepon" required>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label class="form-label">Alamat Lengkap *</label>
+                                <textarea class="form-control" name="Alamat" rows="3" required></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Jenis Layanan -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h5 class="text-primary mb-3">Pilih Layanan</h5>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Jenis Layanan *</label>
+                                <select class="form-control" name="JenisLayanan" id="jenisLayanan" required>
+                                    <option value="">Pilih Layanan</option>
+                                    <option value="cuci-kering" data-price="5000" data-unit="kg">Cuci Kering - Rp 5.000/kg</option>
+                                    <option value="cuci-setrika" data-price="7000" data-unit="kg">Cuci Setrika - Rp 7.000/kg</option>
+                                    <option value="dry-clean" data-price="15000" data-unit="pcs">Dry Clean - Rp 15.000/pcs</option>
+                                    <option value="express" data-price="10000" data-unit="kg">Express (6 Jam) - Rp 10.000/kg</option>
+                                    <option value="sepatu" data-price="25000" data-unit="pasang">Cuci Sepatu - Rp 25.000/pasang</option>
+                                    <option value="tas-koper" data-price="35000" data-unit="pcs">Cuci Tas & Koper - Rp 35.000/pcs</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Jumlah *</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" name="Jumlah" id="jumlah" min="1" required>
+                                    <span class="input-group-text" id="unitText">kg</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Layanan Tambahan -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h5 class="text-primary mb-3">Layanan Tambahan</h5>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="AntarJemput" id="antarJemput">
+                                    <label class="form-check-label" for="antarJemput">
+                                        Antar Jemput (Gratis min. Rp 50.000)
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="PewangiKhusus" id="pewangiKhusus">
+                                    <label class="form-check-label" for="pewangiKhusus">
+                                        Pewangi Khusus (+Rp 2.000/kg)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Jadwal -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h5 class="text-primary mb-3">Jadwal Pengambilan</h5>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Tanggal Pengambilan *</label>
+                                <input type="date" class="form-control" name="TanggalAmbil" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Waktu Pengambilan *</label>
+                                <select class="form-control" name="WaktuAmbil" required>
+                                    <option value="">Pilih Waktu</option>
+                                    <option value="08:00-10:00">08:00 - 10:00</option>
+                                    <option value="10:00-12:00">10:00 - 12:00</option>
+                                    <option value="13:00-15:00">13:00 - 15:00</option>
+                                    <option value="15:00-17:00">15:00 - 17:00</option>
+                                    <option value="17:00-19:00">17:00 - 19:00</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Catatan -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <label class="form-label">Catatan Khusus</label>
+                                <textarea class="form-control" name="Catatan" rows="3" placeholder="Instruksi khusus untuk laundry Anda..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Total Harga -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <div class="card bg-light">
+                                    <div class="card-body">
+                                        <h5 class="text-primary mb-3">Ringkasan Pesanan</h5>
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <span>Subtotal:</span>
+                                            <span id="subtotal">Rp 0</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between mb-2" id="pewangiRow" style="display: none !important;">
+                                            <span>Pewangi Khusus:</span>
+                                            <span id="pewangiCost">Rp 0</span>
+                                        </div>
+                                        <hr>
+                                        <div class="d-flex justify-content-between fw-bold">
+                                            <span>Total:</span>
+                                            <span id="totalHarga" class="text-primary fs-5">Rp 0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Metode Pembayaran -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h5 class="text-primary mb-3">Metode Pembayaran</h5>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-4 mb-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="PaymentMethod" id="tunai" value="Tunai (Bayar di Tempat)" required>
+                                                    <label class="form-check-label" for="tunai">
+                                                        <i class="fas fa-money-bill-wave text-success me-2"></i>
+                                                        <strong>Tunai (Bayar di Tempat)</strong>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="PaymentMethod" id="transfer" value="Transfer Bank" required>
+                                                    <label class="form-check-label" for="transfer">
+                                                        <i class="fas fa-university text-primary me-2"></i>
+                                                        <strong>Transfer Bank</strong>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="PaymentMethod" id="ewallet" value="E-Wallet" required>
+                                                    <label class="form-check-label" for="ewallet">
+                                                        <i class="fas fa-mobile-alt text-info me-2"></i>
+                                                        <strong>E-Wallet</strong>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Informasi Pembayaran -->
+                                        <div id="paymentInfo" style="display: none;">
+                                            <hr>
+                                            <div class="alert alert-info">
+                                                <h6 class="alert-heading">Informasi Pembayaran:</h6>
+                                                <div id="paymentDetails"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-check me-2"></i>Konfirmasi Pesanan
+                                </button>
+                                <a asp-page="/Layanan" class="btn btn-outline-secondary btn-lg ms-3">
+                                    <i class="fas fa-arrow-left me-2"></i>Kembali ke Layanan
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const jenisLayanan = document.getElementById('jenisLayanan');
+            const jumlah = document.getElementById('jumlah');
+            const unitText = document.getElementById('unitText');
+            const pewangiKhusus = document.getElementById('pewangiKhusus');
+            const subtotal = document.getElementById('subtotal');
+            const pewangiCost = document.getElementById('pewangiCost');
+            const pewangiRow = document.getElementById('pewangiRow');
+            const totalHarga = document.getElementById('totalHarga');
+
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            document.querySelector('input[name="TanggalAmbil"]').setAttribute('min', today);
+
+            function calculateTotal() {
+                const selectedOption = jenisLayanan.options[jenisLayanan.selectedIndex];
+                const price = parseInt(selectedOption.getAttribute('data-price')) || 0;
+                const unit = selectedOption.getAttribute('data-unit') || 'kg';
+                const quantity = parseInt(jumlah.value) || 0;
+
+                // Update unit text
+                unitText.textContent = unit;
+
+                // Calculate subtotal
+                const subtotalAmount = price * quantity;
+                subtotal.textContent = 'Rp ' + subtotalAmount.toLocaleString('id-ID');
+
+                // Calculate pewangi cost (only for kg-based services)
+                let pewangiAmount = 0;
+                if (pewangiKhusus.checked && unit === 'kg') {
+                    pewangiAmount = 2000 * quantity;
+                    pewangiCost.textContent = 'Rp ' + pewangiAmount.toLocaleString('id-ID');
+                    pewangiRow.style.display = 'flex';
+                } else {
+                    pewangiRow.style.display = 'none';
+                }
+
+                // Calculate total
+                const total = subtotalAmount + pewangiAmount;
+                totalHarga.textContent = 'Rp ' + total.toLocaleString('id-ID');
+            }
+
+            jenisLayanan.addEventListener('change', calculateTotal);
+            jumlah.addEventListener('input', calculateTotal);
+            pewangiKhusus.addEventListener('change', calculateTotal);
+
+            // Payment method selection handler
+            const paymentMethods = document.querySelectorAll('input[name="PaymentMethod"]');
+            const paymentInfo = document.getElementById('paymentInfo');
+            const paymentDetails = document.getElementById('paymentDetails');
+
+            paymentMethods.forEach(method => {
+                method.addEventListener('change', function() {
+                    if (this.checked) {
+                        showPaymentInfo(this.value);
+                    }
+                });
+            });
+
+            function showPaymentInfo(paymentMethod) {
+                let details = '';
+                
+                switch(paymentMethod) {
+                    case 'Tunai (Bayar di Tempat)':
+                        // Tidak menampilkan informasi tambahan untuk tunai
+                        paymentInfo.style.display = 'none';
+                        return;
+                        
+                    case 'Transfer Bank':
+                        details = `
+                            <strong>Bank BCA</strong><br>
+                            No. Rekening: <strong>1234567890</strong><br>
+                            Atas Nama: <strong>Laundry Cuci Kilat</strong><br><br>
+                            <strong>Bank Mandiri</strong><br>
+                            No. Rekening: <strong>0987654321</strong><br>
+                            Atas Nama: <strong>Laundry Cuci Kilat</strong><br><br>
+                            <small class="text-muted">Kirim bukti transfer via WhatsApp ke 0812-3456-7890</small>
+                        `;
+                        break;
+                        
+                    case 'E-Wallet':
+                        details = `
+                            <strong>Dana:</strong> 081234567890<br>
+                            <strong>OVO:</strong> 081234567890<br>
+                            <strong>GoPay:</strong> 081234567890<br><br>
+                            <small class="text-muted">Kirim screenshot bukti pembayaran via WhatsApp ke 0812-3456-7890</small>
+                        `;
+                        break;
+                }
+                
+                paymentDetails.innerHTML = details;
+                paymentInfo.style.display = 'block';
+            }
+
+            // Form submission
+            document.getElementById('orderForm').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Validate payment method selection
+                const selectedPaymentMethod = document.querySelector('input[name="PaymentMethod"]:checked');
+                if (!selectedPaymentMethod) {
+                    alert('Silakan pilih metode pembayaran terlebih dahulu!');
+                    return;
+                }
+                
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const hideLoading = LaundryAPI.showLoading(submitBtn, 'Memproses Pesanan...');
+                
+                try {
+                    // Prepare order data
+                    const formData = new FormData(this);
+                    const orderData = {
+                        namaLengkap: formData.get('NamaLengkap'),
+                        noTelepon: formData.get('NoTelepon'),
+                        alamat: formData.get('Alamat'),
+                        jenisLayanan: formData.get('JenisLayanan'),
+                        jumlah: parseInt(formData.get('Jumlah')),
+                        antarJemput: formData.get('AntarJemput') === 'on',
+                        pewangiKhusus: formData.get('PewangiKhusus') === 'on',
+                        tanggalAmbil: formData.get('TanggalAmbil'),
+                        waktuAmbil: formData.get('WaktuAmbil'),
+                        catatan: formData.get('Catatan') || '',
+                        paymentMethod: formData.get('PaymentMethod'),
+                        total: totalHarga.textContent,
+                        status: 'Menunggu Konfirmasi',
+                        estimasiSelesai: calculateEstimatedCompletion(formData.get('JenisLayanan'))
+                    };
+
+                    // Create order using API with fallback
+                    const createdOrder = await LaundryAPI.createOrderFallback(orderData);
+                    
+                    hideLoading();
+                    LaundryAPI.showSuccess('Pesanan berhasil dibuat!');
+                    
+                    // Redirect to status page
+                    window.location.href = '/Status?orderId=' + createdOrder.orderId;
+                    
+                } catch (error) {
+                    hideLoading();
+                    LaundryAPI.showError('Gagal membuat pesanan: ' + error.message);
+                }
+            });
+
+            function calculateEstimatedCompletion(serviceType) {
+                const today = new Date();
+                let days = 2; // default
+
+                switch(serviceType) {
+                    case 'cuci-kering': days = 1; break;
+                    case 'cuci-setrika': days = 2; break;
+                    case 'dry-clean': days = 4; break;
+                    case 'express': days = 0; break; // same day
+                    case 'sepatu': days = 3; break;
+                    case 'tas-koper': days = 4; break;
+                }
+
+                const completionDate = new Date(today);
+                completionDate.setDate(today.getDate() + days);
+                return completionDate.toLocaleDateString('id-ID');
+            }
+        });
+    </script>
+}

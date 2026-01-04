@@ -1,0 +1,317 @@
+@page
+@model KontakModel
+@{
+    ViewData["Title"] = "Kontak Kami";
+}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12 text-center mb-5">
+            <h1 class="fw-bold text-primary">Kontak Kami</h1>
+            <p class="text-muted">Hubungi kami untuk informasi lebih lanjut atau bantuan</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Contact Information -->
+        <div class="col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div class="contact-icon mb-3">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h5 class="text-primary">Alamat</h5>
+                    <p class="text-muted">
+                        Jl. Contoh No. 123<br>
+                        Jakarta Selatan 12345<br>
+                        Indonesia
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div class="contact-icon mb-3">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h5 class="text-primary">Telepon</h5>
+                    <p class="text-muted">
+                        <a href="tel:+6281234567890" class="text-decoration-none">+62 812-3456-7890</a><br>
+                        <a href="tel:+622112345678" class="text-decoration-none">+62 21-1234-5678</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div class="contact-icon mb-3">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h5 class="text-primary">Email</h5>
+                    <p class="text-muted">
+                        <a href="mailto:info@laundrycucikilat.com" class="text-decoration-none">info@laundrycucikilat.com</a><br>
+                        <a href="mailto:cs@laundrycucikilat.com" class="text-decoration-none">cs@laundrycucikilat.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Operating Hours -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4 class="text-primary mb-0"><i class="fas fa-clock me-2"></i>Jam Operasional</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="operating-hours">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="fw-bold">Senin - Jumat</span>
+                                    <span>07:00 - 21:00</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="fw-bold">Sabtu</span>
+                                    <span>07:00 - 21:00</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="fw-bold">Minggu</span>
+                                    <span>08:00 - 20:00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                <strong>Layanan Express 24 Jam</strong><br>
+                                Tersedia untuk pesanan khusus dengan biaya tambahan
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="row mt-5">
+        <div class="col-lg-8 mx-auto">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4 class="text-primary mb-0"><i class="fas fa-comments me-2"></i>Kirim Pesan</h4>
+                </div>
+                <div class="card-body">
+                    <form id="contactForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Nama Lengkap *</label>
+                                <input type="text" class="form-control" name="nama" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Email *</label>
+                                <input type="email" class="form-control" name="email" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Nomor Telepon</label>
+                                <input type="tel" class="form-control" name="telepon">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Subjek *</label>
+                                <select class="form-control" name="subjek" required>
+                                    <option value="">Pilih Subjek</option>
+                                    <option value="informasi-layanan">Informasi Layanan</option>
+                                    <option value="keluhan">Keluhan</option>
+                                    <option value="saran">Saran</option>
+                                    <option value="kerjasama">Kerjasama</option>
+                                    <option value="lainnya">Lainnya</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Pesan *</label>
+                            <textarea class="form-control" name="pesan" rows="5" required placeholder="Tulis pesan Anda di sini..."></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-paper-plane me-2"></i>Kirim Pesan
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Contact -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card bg-primary text-white">
+                <div class="card-body text-center py-4">
+                    <h4 class="mb-3">Butuh Bantuan Cepat?</h4>
+                    <p class="mb-4">Hubungi kami langsung melalui WhatsApp untuk respon yang lebih cepat</p>
+                    <div class="row justify-content-center">
+                        <div class="col-md-3 mb-3">
+                            <a href="https://wa.me/6281234567890" class="btn btn-light btn-lg w-100" target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                            </a>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <a href="tel:+6281234567890" class="btn btn-outline-light btn-lg w-100">
+                                <i class="fas fa-phone me-2"></i>Telepon
+                            </a>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <a href="mailto:info@laundrycucikilat.com" class="btn btn-outline-light btn-lg w-100">
+                                <i class="fas fa-envelope me-2"></i>Email
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <h3 class="text-center text-primary mb-4">Pertanyaan yang Sering Diajukan</h3>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq1">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                            Berapa lama waktu pengerjaan laundry?
+                        </button>
+                    </h2>
+                    <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Waktu pengerjaan bervariasi tergantung jenis layanan:
+                            <ul class="mt-2">
+                                <li>Cuci Kering: 24 jam</li>
+                                <li>Cuci Setrika: 48 jam</li>
+                                <li>Dry Clean: 3-5 hari</li>
+                                <li>Express: 6 jam</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                            Apakah ada layanan antar jemput?
+                        </button>
+                    </h2>
+                    <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Ya, kami menyediakan layanan antar jemput gratis untuk pesanan minimal Rp 50.000 dalam radius 5km dari toko kami.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+                            Bagaimana cara pembayaran?
+                        </button>
+                    </h2>
+                    <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Kami menerima berbagai metode pembayaran:
+                            <ul class="mt-2">
+                                <li>Tunai (saat pengambilan/pengantaran)</li>
+                                <li>Transfer Bank (BCA, Mandiri, BNI, BRI)</li>
+                                <li>E-Wallet (GoPay, OVO, DANA, ShopeePay)</li>
+                                <li>QRIS</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq4">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
+                            Apakah pakaian saya aman?
+                        </button>
+                    </h2>
+                    <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Tentu saja! Kami memiliki sistem tracking yang ketat dan asuransi untuk setiap pesanan. Pakaian Anda akan ditangani dengan hati-hati oleh staff yang berpengalaman.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq5">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5">
+                            Bagaimana jika ada kerusakan pada pakaian?
+                        </button>
+                    </h2>
+                    <div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Kami memiliki kebijakan ganti rugi untuk kerusakan yang disebabkan oleh kelalaian kami. Silakan laporkan kerusakan dalam 24 jam setelah pengambilan untuk klaim asuransi.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const hideLoading = LaundryAPI.showLoading(submitBtn, 'Mengirim Pesan...');
+            
+            try {
+                // Get form data
+                const formData = new FormData(this);
+                const contactData = {
+                    nama: formData.get('nama'),
+                    email: formData.get('email'),
+                    telepon: formData.get('telepon') || '',
+                    subjek: formData.get('subjek'),
+                    pesan: formData.get('pesan')
+                };
+
+                // Send to API
+                await LaundryAPI.createContactMessage(contactData);
+                
+                hideLoading();
+                LaundryAPI.showSuccess('Terima kasih! Pesan Anda telah terkirim. Kami akan merespons dalam 1x24 jam.');
+                
+                // Reset form
+                this.reset();
+
+                // Optional: Open WhatsApp with pre-filled message
+                const whatsappMessage = `Halo Laundry Cuci Kilat,\n\n` +
+                                      `Nama: ${contactData.nama}\n` +
+                                      `Email: ${contactData.email}\n` +
+                                      `Subjek: ${contactData.subjek}\n\n` +
+                                      `Pesan: ${contactData.pesan}`;
+                
+                const whatsappUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(whatsappMessage)}`;
+                
+                if (confirm('Apakah Anda ingin mengirim pesan ini juga via WhatsApp untuk respon yang lebih cepat?')) {
+                    window.open(whatsappUrl, '_blank');
+                }
+                
+            } catch (error) {
+                hideLoading();
+                LaundryAPI.showError('Gagal mengirim pesan: ' + error.message);
+            }
+        });
+    </script>
+}

@@ -1,0 +1,696 @@
+@page
+@model StrukModel
+@{
+    ViewData["Title"] = "Struk & Invoice";
+}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12 text-center mb-5">
+            <h1 class="fw-bold text-primary">Struk & Invoice</h1>
+            <p class="text-muted">Unduh atau print struk pesanan Anda</p>
+        </div>
+    </div>
+
+    <!-- Search Order -->
+    <div class="row justify-content-center mb-5" id="searchSection">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center mb-4">Cari Pesanan Anda</h5>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="orderIdInput" placeholder="Masukkan ID Pesanan">
+                        <button class="btn btn-primary" type="button" onclick="loadInvoice()">
+                            <i class="fas fa-search me-2"></i>Cari
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Invoice -->
+    <div id="invoiceSection" style="display: none;">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!-- Action Buttons -->
+                <div class="text-center mb-4 no-print">
+                    <button class="btn btn-primary me-3" onclick="printInvoice()">
+                        <i class="fas fa-print me-2"></i>Print Struk
+                    </button>
+                    <button class="btn btn-success me-3" onclick="downloadPDF()" id="downloadPdfBtn">
+                        <i class="fas fa-download me-2"></i>Download PDF
+                    </button>
+                    <button class="btn btn-info me-3" onclick="downloadPDFAdvanced()" id="downloadAdvancedBtn">
+                        <i class="fas fa-file-pdf me-2"></i>Download PDF (Advanced)
+                    </button>
+                    <button class="btn btn-outline-secondary" onclick="shareWhatsApp()">
+                        <i class="fab fa-whatsapp me-2"></i>Share via WhatsApp
+                    </button>
+                </div>
+
+                <!-- Invoice Content -->
+                <div class="card invoice-card" id="invoiceContent">
+                    <div class="card-body p-4">
+                        <!-- Header with Date and Receipt Number -->
+                        <div class="receipt-header d-flex justify-content-between align-items-center mb-4">
+                            <div class="receipt-date">
+                                <span id="receiptDate">24/12/25, 9:09 AM</span>
+                            </div>
+                            <div class="receipt-number">
+                                <span>Laundry Cuci Kilat - Receipt <span id="receiptNumber">LCK152739</span></span>
+                            </div>
+                        </div>
+
+                        <!-- Coffee Cup Icon and Brand -->
+                        <div class="text-center mb-4">
+                            <div class="brand-icon mb-3">
+                                <i class="fas fa-tshirt" style="font-size: 3rem; color: #8B4513;"></i>
+                            </div>
+                            <h2 class="brand-name mb-1">LAUNDRY CUCI KILAT</h2>
+                            <p class="brand-tagline text-muted">Your Clean Corner</p>
+                        </div>
+
+                        <!-- Order Information Section -->
+                        <div class="order-info-section mb-4">
+                            <h5 class="section-title">INFORMASI PESANAN</h5>
+                            <hr class="section-divider">
+                            
+                            <div class="info-row d-flex justify-content-between">
+                                <span class="info-label">No. Order:</span>
+                                <span class="info-value" id="orderNumber">LCK152739</span>
+                            </div>
+                            
+                            <div class="info-row d-flex justify-content-between">
+                                <span class="info-label">Tanggal:</span>
+                                <span class="info-value" id="orderDate">24/12/2025</span>
+                            </div>
+                            
+                            <div class="info-row d-flex justify-content-between">
+                                <span class="info-label">Waktu:</span>
+                                <span class="info-value" id="orderTime">09.09.12</span>
+                            </div>
+                            
+                            <div class="info-row d-flex justify-content-between">
+                                <span class="info-label">Nama Pelanggan:</span>
+                                <span class="info-value" id="customerNameReceipt">nara</span>
+                            </div>
+                            
+                            <div class="info-row d-flex justify-content-between">
+                                <span class="info-label">Nomor Meja:</span>
+                                <span class="info-value" id="tableNumber">A1</span>
+                            </div>
+                            
+                            <div class="info-row d-flex justify-content-between">
+                                <span class="info-label">Metode Pembayaran:</span>
+                                <span class="info-value" id="paymentMethod">transfer</span>
+                            </div>
+                        </div>
+
+                        <!-- Order Details Section -->
+                        <div class="order-details-section mb-4">
+                            <h5 class="section-title">DETAIL PESANAN</h5>
+                            <hr class="section-divider">
+                            
+                            <!-- Table Header -->
+                            <div class="details-header d-flex justify-content-between mb-2">
+                                <span class="header-item">ITEM</span>
+                                <span class="header-item">QTY</span>
+                                <span class="header-item">HARGA</span>
+                            </div>
+                            
+                            <!-- Order Items -->
+                            <div id="orderItems">
+                                <div class="order-item d-flex justify-content-between">
+                                    <span class="item-name" id="serviceName">Cuci Kering</span>
+                                    <span class="item-qty" id="serviceQty">x1</span>
+                                    <span class="item-price" id="servicePrice">Rp 23.000</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Total Section -->
+                        <div class="total-section">
+                            <div class="total-box">
+                                <div class="total-row d-flex justify-content-between">
+                                    <span>Subtotal:</span>
+                                    <span id="subtotalAmount">Rp 23.000</span>
+                                </div>
+                                
+                                <div class="total-row d-flex justify-content-between">
+                                    <span>Pajak (10%):</span>
+                                    <span id="taxAmount">Rp 2.300</span>
+                                </div>
+                                
+                                <hr class="total-divider">
+                                
+                                <div class="final-total d-flex justify-content-between">
+                                    <strong>TOTAL PEMBAYARAN:</strong>
+                                    <strong id="finalTotal">Rp 25.300</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="row mt-4">
+                            <div class="col-12 text-center">
+                                <button class="btn btn-primary me-2 mb-2" onclick="printReceipt()">
+                                    <i class="fas fa-print me-2"></i>Print Receipt
+                                </button>
+                                <button class="btn btn-success me-2 mb-2" onclick="downloadReceiptPDF()" id="downloadReceiptBtn">
+                                    <i class="fas fa-download me-2"></i>Download PDF
+                                </button>
+                                <button class="btn btn-info me-2 mb-2" onclick="downloadReceiptPDFAdvanced()" id="downloadAdvancedReceiptBtn">
+                                    <i class="fas fa-file-pdf me-2"></i>Download PDF (Server)
+                                </button>
+                                <button class="btn btn-outline-primary mb-2" onclick="shareReceiptWhatsApp()">
+                                    <i class="fas fa-share me-2"></i>Share Receipt
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- No Invoice Found -->
+    <div id="noInvoiceFound" style="display: none;">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card text-center">
+                    <div class="card-body py-5">
+                        <i class="fas fa-file-invoice fs-1 text-muted mb-3"></i>
+                        <h5>Invoice Tidak Ditemukan</h5>
+                        <p class="text-muted">ID Pesanan yang Anda masukkan tidak ditemukan atau belum memiliki invoice.</p>
+                        <a asp-page="/Pemesanan" class="btn btn-primary">
+                            <i class="fas fa-plus me-2"></i>Buat Pesanan Baru
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check for order ID in URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const orderIdFromUrl = urlParams.get('orderId');
+            
+            if (orderIdFromUrl) {
+                document.getElementById('orderIdInput').value = orderIdFromUrl;
+                loadInvoice();
+            }
+
+            // Set print date
+            document.getElementById('printDate').textContent = new Date().toLocaleDateString('id-ID', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        });
+
+        function loadInvoice() {
+            const orderId = document.getElementById('orderIdInput').value.trim();
+            
+            if (!orderId) {
+                alert('Masukkan ID Pesanan');
+                return;
+            }
+
+            const orders = JSON.parse(localStorage.getItem('laundryOrders') || '[]');
+            const order = orders.find(o => o.orderId === orderId);
+
+            if (order) {
+                displayInvoice(order);
+            } else {
+                showNoInvoiceFound();
+            }
+        }
+
+        function displayInvoice(order) {
+            document.getElementById('searchSection').style.display = 'none';
+            document.getElementById('invoiceSection').style.display = 'block';
+            document.getElementById('noInvoiceFound').style.display = 'none';
+
+            // Set receipt date and time
+            const now = new Date();
+            const receiptDate = now.toLocaleDateString('id-ID', {
+                day: '2-digit',
+                month: '2-digit',
+                year: '2-digit'
+            }) + ', ' + now.toLocaleTimeString('id-ID', {
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            document.getElementById('receiptDate').textContent = receiptDate;
+
+            // Fill receipt and order numbers
+            document.getElementById('receiptNumber').textContent = order.orderId;
+            document.getElementById('orderNumber').textContent = order.orderId;
+            
+            // Fill order date and time
+            document.getElementById('orderDate').textContent = order.tanggalPesan;
+            document.getElementById('orderTime').textContent = now.toLocaleTimeString('id-ID', {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            
+            // Fill customer data
+            document.getElementById('customerNameReceipt').textContent = order.namaLengkap;
+            
+            // Set table number (generate from order ID)
+            const tableNumber = 'A' + order.orderId.slice(-1);
+            document.getElementById('tableNumber').textContent = tableNumber;
+            
+            // Set payment method
+            document.getElementById('paymentMethod').textContent = order.paymentMethod || 'Belum dipilih';
+
+            // Service details
+            const serviceNames = {
+                'cuci-kering': 'Cuci Kering',
+                'cuci-setrika': 'Cuci Setrika',
+                'dry-clean': 'Dry Clean',
+                'express': 'Express (6 Jam)',
+                'sepatu': 'Cuci Sepatu',
+                'tas-koper': 'Cuci Tas & Koper'
+            };
+
+            const servicePrices = {
+                'cuci-kering': 5000,
+                'cuci-setrika': 7000,
+                'dry-clean': 15000,
+                'express': 10000,
+                'sepatu': 25000,
+                'tas-koper': 35000
+            };
+
+            const serviceName = serviceNames[order.jenisLayanan] || order.jenisLayanan;
+            const servicePrice = servicePrices[order.jenisLayanan] || 0;
+            const unit = getUnit(order.jenisLayanan);
+            const quantity = parseInt(order.jumlah);
+            const subtotal = servicePrice * quantity;
+
+            // Fill service details
+            document.getElementById('serviceName').textContent = serviceName;
+            document.getElementById('serviceQty').textContent = `x${quantity}`;
+            document.getElementById('servicePrice').textContent = 'Rp ' + subtotal.toLocaleString('id-ID');
+
+            // Calculate additional costs
+            let additionalCost = 0;
+            if (order.pewangiKhusus && unit === 'kg') {
+                additionalCost = 2000 * quantity;
+            }
+
+            // Calculate totals
+            const finalSubtotal = subtotal + additionalCost;
+            const tax = Math.round(finalSubtotal * 0.1); // 10% tax
+            const grandTotal = finalSubtotal + tax;
+
+            // Fill totals
+            document.getElementById('subtotalAmount').textContent = 'Rp ' + finalSubtotal.toLocaleString('id-ID');
+            document.getElementById('taxAmount').textContent = 'Rp ' + tax.toLocaleString('id-ID');
+            document.getElementById('finalTotal').textContent = 'Rp ' + grandTotal.toLocaleString('id-ID');
+        }
+
+        function showNoInvoiceFound() {
+            document.getElementById('searchSection').style.display = 'none';
+            document.getElementById('invoiceSection').style.display = 'none';
+            document.getElementById('noInvoiceFound').style.display = 'block';
+        }
+
+        function getUnit(serviceType) {
+            const units = {
+                'cuci-kering': 'kg',
+                'cuci-setrika': 'kg',
+                'dry-clean': 'pcs',
+                'express': 'kg',
+                'sepatu': 'pasang',
+                'tas-koper': 'pcs'
+            };
+            return units[serviceType] || 'kg';
+        }
+
+        function getStatusClass(status) {
+            switch(status) {
+                case 'Menunggu Konfirmasi': return 'status-pending';
+                case 'Dijemput': return 'status-processing';
+                case 'Sedang Dicuci': return 'status-processing';
+                case 'Selesai': return 'status-completed';
+                default: return 'status-pending';
+            }
+        }
+
+        function downloadReceiptPDF() {
+            const { jsPDF } = window.jspdf;
+            
+            if (!jsPDF) {
+                alert('PDF library tidak tersedia. Silakan refresh halaman.');
+                return;
+            }
+            
+            // Show loading
+            const downloadBtn = document.getElementById('downloadReceiptBtn');
+            const originalText = downloadBtn.innerHTML;
+            downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Generating PDF...';
+            downloadBtn.disabled = true;
+            
+            try {
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                const pageWidth = pdf.internal.pageSize.getWidth();
+                
+                // Get receipt data
+                const receiptDate = document.getElementById('receiptDate').textContent;
+                const receiptNumber = document.getElementById('receiptNumber').textContent;
+                const orderNumber = document.getElementById('orderNumber').textContent;
+                const orderDate = document.getElementById('orderDate').textContent;
+                const orderTime = document.getElementById('orderTime').textContent;
+                const customerName = document.getElementById('customerNameReceipt').textContent;
+                const tableNumber = document.getElementById('tableNumber').textContent;
+                const paymentMethod = document.getElementById('paymentMethod').textContent;
+                const serviceName = document.getElementById('serviceName').textContent;
+                const serviceQty = document.getElementById('serviceQty').textContent;
+                const servicePrice = document.getElementById('servicePrice').textContent;
+                const subtotalAmount = document.getElementById('subtotalAmount').textContent;
+                const taxAmount = document.getElementById('taxAmount').textContent;
+                const finalTotal = document.getElementById('finalTotal').textContent;
+                
+                let yPos = 20;
+                
+                // Header with date and receipt number
+                pdf.setFontSize(10);
+                pdf.setFont('helvetica', 'normal');
+                pdf.text(receiptDate, 20, yPos);
+                pdf.text(`Laundry Cuci Kilat - Receipt ${receiptNumber}`, pageWidth - 20, yPos, { align: 'right' });
+                
+                yPos += 20;
+                
+                // Brand section
+                pdf.setFontSize(20);
+                pdf.setFont('helvetica', 'bold');
+                pdf.text('LAUNDRY CUCI KILAT', pageWidth / 2, yPos, { align: 'center' });
+                
+                yPos += 8;
+                pdf.setFontSize(12);
+                pdf.setFont('helvetica', 'italic');
+                pdf.text('Your Clean Corner', pageWidth / 2, yPos, { align: 'center' });
+                
+                yPos += 20;
+                
+                // Order Information Section
+                pdf.setFontSize(14);
+                pdf.setFont('helvetica', 'bold');
+                pdf.text('INFORMASI PESANAN', 20, yPos);
+                
+                yPos += 5;
+                pdf.setLineWidth(0.5);
+                pdf.line(20, yPos, pageWidth - 20, yPos);
+                
+                yPos += 10;
+                pdf.setFontSize(10);
+                pdf.setFont('helvetica', 'normal');
+                
+                const orderInfo = [
+                    [`No. Order:`, orderNumber],
+                    [`Tanggal:`, orderDate],
+                    [`Waktu:`, orderTime],
+                    [`Nama Pelanggan:`, customerName],
+                    [`Nomor Meja:`, tableNumber],
+                    [`Metode Pembayaran:`, paymentMethod]
+                ];
+                
+                orderInfo.forEach(([label, value]) => {
+                    pdf.text(label, 20, yPos);
+                    pdf.text(value, pageWidth - 20, yPos, { align: 'right' });
+                    yPos += 6;
+                });
+                
+                yPos += 10;
+                
+                // Order Details Section
+                pdf.setFontSize(14);
+                pdf.setFont('helvetica', 'bold');
+                pdf.text('DETAIL PESANAN', 20, yPos);
+                
+                yPos += 5;
+                pdf.line(20, yPos, pageWidth - 20, yPos);
+                
+                yPos += 10;
+                pdf.setFontSize(10);
+                pdf.setFont('helvetica', 'bold');
+                pdf.text('ITEM', 20, yPos);
+                pdf.text('QTY', pageWidth / 2, yPos, { align: 'center' });
+                pdf.text('HARGA', pageWidth - 20, yPos, { align: 'right' });
+                
+                yPos += 8;
+                pdf.setFont('helvetica', 'normal');
+                pdf.text(serviceName, 20, yPos);
+                pdf.text(serviceQty, pageWidth / 2, yPos, { align: 'center' });
+                pdf.text(servicePrice, pageWidth - 20, yPos, { align: 'right' });
+                
+                yPos += 15;
+                
+                // Total Section
+                pdf.setFillColor(245, 245, 245);
+                pdf.rect(20, yPos - 5, pageWidth - 40, 35, 'F');
+                
+                yPos += 5;
+                pdf.text('Subtotal:', 25, yPos);
+                pdf.text(subtotalAmount, pageWidth - 25, yPos, { align: 'right' });
+                
+                yPos += 8;
+                pdf.text('Pajak (10%):', 25, yPos);
+                pdf.text(taxAmount, pageWidth - 25, yPos, { align: 'right' });
+                
+                yPos += 5;
+                pdf.setLineWidth(0.5);
+                pdf.line(25, yPos, pageWidth - 25, yPos);
+                
+                yPos += 8;
+                pdf.setFont('helvetica', 'bold');
+                pdf.text('TOTAL PEMBAYARAN:', 25, yPos);
+                pdf.text(finalTotal, pageWidth - 25, yPos, { align: 'right' });
+                
+                // Footer
+                yPos = pdf.internal.pageSize.getHeight() - 30;
+                pdf.setFontSize(8);
+                pdf.setFont('helvetica', 'normal');
+                pdf.setTextColor(128, 128, 128);
+                pdf.text('Terima kasih telah menggunakan layanan Laundry Cuci Kilat', pageWidth / 2, yPos, { align: 'center' });
+                pdf.text('Jl. Contoh No. 123, Jakarta | +62 812-3456-7890', pageWidth / 2, yPos + 5, { align: 'center' });
+                pdf.text(`Dicetak pada: ${new Date().toLocaleString('id-ID')}`, pageWidth / 2, yPos + 15, { align: 'center' });
+                
+                // Save PDF
+                const fileName = `Receipt-${receiptNumber}-${new Date().toISOString().slice(0,10)}.pdf`;
+                pdf.save(fileName);
+                
+                // Reset button
+                downloadBtn.innerHTML = originalText;
+                downloadBtn.disabled = false;
+                
+                showToast('Receipt PDF berhasil diunduh!', 'success');
+                
+            } catch (error) {
+                console.error('Error generating receipt PDF:', error);
+                alert('Gagal membuat PDF. Silakan coba lagi.');
+                
+                // Reset button
+                downloadBtn.innerHTML = originalText;
+                downloadBtn.disabled = false;
+            }
+        }
+
+        function printReceipt() {
+            const printBtn = document.querySelector('button[onclick="printReceipt()"]');
+            const originalText = printBtn.innerHTML;
+            printBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Preparing...';
+            printBtn.disabled = true;
+            
+            // Small delay to show loading state
+            setTimeout(() => {
+                window.print();
+                
+                // Reset button after print dialog
+                setTimeout(() => {
+                    printBtn.innerHTML = originalText;
+                    printBtn.disabled = false;
+                }, 1000);
+            }, 500);
+        }
+
+        function shareReceiptWhatsApp() {
+            const receiptNumber = document.getElementById('receiptNumber').textContent;
+            const customerName = document.getElementById('customerNameReceipt').textContent;
+            const finalTotal = document.getElementById('finalTotal').textContent;
+            const serviceName = document.getElementById('serviceName').textContent;
+            
+            const message = `*RECEIPT LAUNDRY CUCI KILAT*\n\n` +
+                          `Receipt: ${receiptNumber}\n` +
+                          `Nama: ${customerName}\n` +
+                          `Layanan: ${serviceName}\n` +
+                          `Total: ${finalTotal}\n\n` +
+                          `Terima kasih telah menggunakan layanan kami!\n\n` +
+                          `Untuk melihat detail lengkap: ${window.location.href}`;
+            
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function printInvoice() {
+            const printBtn = document.querySelector('button[onclick="printInvoice()"]');
+            const originalText = printBtn.innerHTML;
+            printBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Preparing...';
+            printBtn.disabled = true;
+            
+            // Small delay to show loading state
+            setTimeout(() => {
+                window.print();
+                
+                // Reset button after print dialog
+                setTimeout(() => {
+                    printBtn.innerHTML = originalText;
+                    printBtn.disabled = false;
+                }, 1000);
+            }, 500);
+        }
+
+        function shareWhatsApp() {
+            const orderId = document.getElementById('invoiceNumber').textContent;
+            const customerName = document.getElementById('customerName').textContent;
+            const total = document.getElementById('grandTotal').textContent;
+            const status = document.getElementById('invoiceStatus').textContent;
+            
+            const message = `*DETAIL PESANAN LAUNDRY CUCI KILAT*\n\n` +
+                          `ID Pesanan: ${orderId}\n` +
+                          `Nama: ${customerName}\n` +
+                          `Total: ${total}\n` +
+                          `Status: ${status}\n\n` +
+                          `Terima kasih telah menggunakan layanan kami!\n\n` +
+                          `Untuk melihat detail lengkap: ${window.location.href}`;
+            
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Allow Enter key to search
+        document.getElementById('orderIdInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                loadInvoice();
+            }
+        });
+
+        // Toast notification function
+        function showToast(message, type = 'info') {
+            // Remove existing toasts
+            const existingToasts = document.querySelectorAll('.toast-notification');
+            existingToasts.forEach(toast => toast.remove());
+
+            const toast = document.createElement('div');
+            toast.className = `toast-notification toast-${type}`;
+            toast.innerHTML = `
+                <div class="toast-content">
+                    <i class="fas fa-${getToastIcon(type)} me-2"></i>
+                    <span>${message}</span>
+                    <button class="toast-close" onclick="this.parentElement.parentElement.remove()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            `;
+
+            document.body.appendChild(toast);
+
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (toast.parentElement) {
+                    toast.remove();
+                }
+            }, 5000);
+        }
+
+        function getToastIcon(type) {
+            switch(type) {
+                case 'success': return 'check-circle';
+                case 'error': return 'exclamation-circle';
+                case 'warning': return 'exclamation-triangle';
+                default: return 'info-circle';
+            }
+        }
+
+        // Download PDF using backend API (Advanced)
+        async function downloadReceiptPDFAdvanced() {
+            const orderId = document.getElementById('orderNumber').textContent;
+            
+            if (!orderId) {
+                alert('ID Pesanan tidak ditemukan');
+                return;
+            }
+
+            try {
+                // Show loading state
+                const downloadBtn = document.getElementById('downloadAdvancedReceiptBtn');
+                const originalText = downloadBtn.innerHTML;
+                downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Generating PDF...';
+                downloadBtn.disabled = true;
+
+                // Call backend API to generate PDF
+                const response = await fetch(`/api/order/${orderId}/pdf`);
+                
+                if (response.ok) {
+                    // Get the PDF blob
+                    const blob = await response.blob();
+                    
+                    // Create download link
+                    const url = window.URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = url;
+                    
+                    // Get filename from response headers or create default
+                    const contentDisposition = response.headers.get('Content-Disposition');
+                    let filename = `Detail_Pesanan_${orderId}_${new Date().toISOString().slice(0,10)}.pdf`;
+                    
+                    if (contentDisposition) {
+                        const filenameMatch = contentDisposition.match(/filename="(.+)"/);
+                        if (filenameMatch) {
+                            filename = filenameMatch[1];
+                        }
+                    }
+                    
+                    link.download = filename;
+                    document.body.appendChild(link);
+                    link.click();
+                    
+                    // Cleanup
+                    document.body.removeChild(link);
+                    window.URL.revokeObjectURL(url);
+                    
+                    showToast('PDF berhasil diunduh!', 'success');
+                } else {
+                    const errorData = await response.text();
+                    console.error('PDF generation error:', errorData);
+                    showToast(`Gagal membuat PDF: ${response.status}`, 'error');
+                }
+            } catch (error) {
+                console.error('Error downloading PDF:', error);
+                showToast('Terjadi kesalahan saat membuat PDF', 'error');
+            } finally {
+                // Restore button state
+                const downloadBtn = document.getElementById('downloadAdvancedReceiptBtn');
+                if (downloadBtn) {
+                    downloadBtn.innerHTML = originalText;
+                    downloadBtn.disabled = false;
+                }
+            }
+        }
+    </script>
+}
