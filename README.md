@@ -69,11 +69,6 @@ Aplikasi ini menampilkan sistem informasi layanan laundry dengan struktur web ya
 - Laporan Transaksi dan Pendapatan (PDF)
 - Fitur Logout Aman
 
----
-
-## 🔐 Arsitektur Otentikasi
-
-Sistem Laundry Cuci Kilat menerapkan **arsitektur otentikasi berbasis role management**. Setiap pengguna diwajibkan melakukan login untuk mengakses sistem, dan hak akses ditentukan berdasarkan peran pengguna. Menu dan fitur yang tersedia akan disesuaikan dengan role masing-masing pengguna sehingga keamanan dan keteraturan sistem dapat terjaga.
 
 ---
 
@@ -81,13 +76,32 @@ Sistem Laundry Cuci Kilat menerapkan **arsitektur otentikasi berbasis role manag
 
 Website dirancang dengan tampilan yang sederhana, modern, dan user-friendly, meliputi:
 - Halaman Login
+<img width="1919" height="1017" alt="Screenshot 2026-01-04 232202" src="https://github.com/user-attachments/assets/4e0cc5f8-3a85-4d1d-9f79-865dea979f8b" />
+
 - Halaman Beranda
+  <img width="1903" height="961" alt="Screenshot 2026-01-04 111615" src="https://github.com/user-attachments/assets/0ccf978a-16e7-4bb6-beb4-ba3269b241c7" />
+
 - Halaman Layanan
+  <img width="1899" height="1001" alt="Screenshot 2026-01-05 000729" src="https://github.com/user-attachments/assets/3c40497c-5807-4e28-8bcd-8912d112f1e3" />
+
 - Dashboard Admin
+  <img width="1919" height="879" alt="Screenshot 2026-01-04 112543" src="https://github.com/user-attachments/assets/36552a5a-3b41-461b-80f9-a30ac265b17f" />
+
 - Dashboard Karyawan
-- Halaman Kelola Data
+  <img width="1899" height="1002" alt="Screenshot 2026-01-05 001218" src="https://github.com/user-attachments/assets/f7c01185-90e4-48d2-bc82-7aa1c1c830a4" />
+
+- Halaman Kelola Data Karyawan
+  <img width="1915" height="971" alt="Screenshot 2026-01-05 001558" src="https://github.com/user-attachments/assets/de34d8bb-82be-448b-9a47-8c868bb5dc09" />
+
+- Detail Pesanan
+  <img width="652" height="771" alt="Screenshot 2026-01-04 112357" src="https://github.com/user-attachments/assets/7c5d5d40-1ac8-49b7-aabb-5797663d6163" />
+
 - Struk Transaksi Laundry
+  <img width="861" height="930" alt="Screenshot 2026-01-05 064043" src="https://github.com/user-attachments/assets/8e2d307b-3509-4a5c-bfd4-a389730e8caa" />
+
 - Laporan Transaksi dalam format PDF
+  <img width="1683" height="754" alt="Screenshot 2026-01-05 003522" src="https://github.com/user-attachments/assets/384fc027-6117-4e9d-bd53-5c063eb917a8" />
+
 
 Tampilan dibuat responsif untuk mendukung penggunaan pada berbagai perangkat.
 
