@@ -29,6 +29,73 @@ Aplikasi ini menampilkan sistem informasi layanan laundry dengan struktur web ya
 - Mendukung pelayanan laundry yang lebih profesional
 
 ---
+## Cara Menggunakan Website Laundry Cuci Kilat
+
+### 1. Menjalankan Aplikasi
+- Buka project **Laundry Cuci Kilat** menggunakan **Visual Studio** atau **Visual Studio Code**
+- Jalankan aplikasi melalui menu **Run** atau menggunakan perintah `dotnet run`
+- Setelah aplikasi berhasil dijalankan, buka browser
+- Akses website melalui alamat:
+http://localhost:5042
+
+yaml
+Copy code
+
+---
+
+### 2. Login ke Sistem
+- Akses halaman login melalui:
+http://localhost:5042/Login
+
+- Gunakan akun demo berikut untuk masuk ke sistem:
+
+**Admin**
+- Username: `admin@laundrycucikilat.com`
+- Password: `admin123`
+
+**Karyawan**
+- Username: `karyawan@laundrycucikilat.com`
+- Password: `karyawan123`
+
+---
+
+### 3. Menggunakan Fitur Sistem
+- Pilih layanan laundry yang tersedia pada halaman layanan
+- Klik tombol **Pesan Sekarang** untuk melakukan pemesanan
+- Isi data pelanggan (nama, nomor telepon, dan alamat)
+- Tentukan jenis layanan dan jumlah atau berat laundry
+- Pilih layanan tambahan jika diperlukan (antar jemput, pewangi khusus)
+- Konfirmasi dan kirim pesanan
+
+---
+
+### 4. Melihat Detail dan Status Pesanan
+- Setelah pesanan berhasil dibuat, sistem akan menampilkan halaman detail pesanan
+- Pengguna dapat melihat:
+- ID pesanan
+- Data pelanggan
+- Jenis layanan
+- Total biaya
+- Status dan progres pengerjaan laundry
+- Status pesanan dapat dipantau hingga proses selesai
+
+---
+
+### 5. Melihat, Mencetak, atau Mengunduh Struk
+- Setelah pesanan diproses, struk pesanan dapat dilihat melalui menu detail pesanan
+- Struk dapat:
+- Dicetak langsung melalui browser
+- Diunduh dalam format PDF
+- Struk berisi informasi detail pesanan dan total pembayaran
+
+---
+
+### 6. Logout dari Sistem
+- Klik nama pengguna pada navigation bar
+- Pilih menu **Logout** untuk keluar dari sistem
+- Pengguna akan diarahkan kembali ke halaman login
+
+---
 
 ## 🛠️ Teknologi yang Digunakan
 
@@ -94,7 +161,8 @@ Website dirancang dengan tampilan yang sederhana, modern, dan user-friendly, mel
   <img width="1915" height="971" alt="Screenshot 2026-01-05 001558" src="https://github.com/user-attachments/assets/de34d8bb-82be-448b-9a47-8c868bb5dc09" />
 
 - Detail Pesanan
-  <img width="652" height="771" alt="Screenshot 2026-01-04 112357" src="https://github.com/user-attachments/assets/7c5d5d40-1ac8-49b7-aabb-5797663d6163" />
+
+<img width="652" height="771" alt="Screenshot 2026-01-04 112357" src="https://github.com/user-attachments/assets/c749fbee-aab4-4588-b592-75dc227d4dc4" />
 
 - Struk Transaksi Laundry
   <img width="861" height="930" alt="Screenshot 2026-01-05 064043" src="https://github.com/user-attachments/assets/8e2d307b-3509-4a5c-bfd4-a389730e8caa" />
