@@ -175,15 +175,28 @@ Tampilan dibuat responsif untuk mendukung penggunaan pada berbagai perangkat.
 
 ---
 
-## 📂 Struktur Folder Utama
+## 🎥 Demo Aplikasi (Video YouTube)
 
-UAS_PemrogramanVisual/
-├── assets/
-├── templates/
-├── Views/
-├── laundrycucikilat/
-├── home/
-├── Email/
-├── aspnet_client/
-├── favicon.ico
-└── connections.config
+Untuk melihat secara langsung cara kerja dan fitur-fitur utama dari **Website Laundry Cuci Kilat**, silakan tonton video demo aplikasi melalui link YouTube berikut:
+
+| Platform | Deskripsi | Link |
+|--------|----------|------|
+| YouTube | Demo Website Laundry Cuci Kilat – Penjelasan Fitur dan Alur Sistem | https://www.youtube.com/watch?v=LINK_VIDEO_ANDA |
+
+> **Catatan:**  
+> Video demo menampilkan proses penggunaan aplikasi mulai dari login, pemesanan laundry, pengelolaan pesanan oleh karyawan, hingga laporan transaksi oleh admin.
+
+---
+
+## 📌 Penutup
+Website **Laundry Cuci Kilat** dikembangkan sebagai sistem informasi berbasis web yang bertujuan untuk meningkatkan efisiensi operasional bisnis laundry. Dengan adanya sistem ini, proses pemesanan, pengelolaan data, serta pelaporan transaksi dapat dilakukan secara terintegrasi, akurat, dan mudah digunakan oleh setiap peran pengguna.
+
+Sistem ini diharapkan dapat menjadi solusi digital yang aplikatif serta menjadi referensi dalam pengembangan sistem informasi sejenis.
+
+---
+
+## 🙏 Terima Kasih
+Terima kasih telah meluangkan waktu untuk melihat dan mencoba **Website Laundry Cuci Kilat**.  
+Semoga aplikasi ini dapat memberikan manfaat serta wawasan dalam pengembangan sistem informasi berbasis web.
+
+Jika terdapat saran, masukan, atau pertanyaan, silakan disampaikan melalui repository ini.
