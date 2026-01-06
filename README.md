@@ -181,7 +181,7 @@ Untuk melihat secara langsung cara kerja dan fitur-fitur utama dari **Website La
 
 | Platform | Deskripsi | Link |
 |--------|----------|------|
-| YouTube | Demo Website Laundry Cuci Kilat – Penjelasan Fitur dan Alur Sistem | https://www.youtube.com/watch?v=LINK_VIDEO_ANDA |
+| YouTube | Demo Website Laundry Cuci Kilat – Penjelasan Fitur dan Alur Sistem | https://youtu.be/W54-BRMrcHc?si=FwgG5ORplnTBCVpZ |
 
 > **Catatan:**  
 > Video demo menampilkan proses penggunaan aplikasi mulai dari login, pemesanan laundry, pengelolaan pesanan oleh karyawan, hingga laporan transaksi oleh admin.
